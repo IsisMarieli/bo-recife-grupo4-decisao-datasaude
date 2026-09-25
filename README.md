@@ -25,7 +25,7 @@ Este repositório foi criado a partir do modelo do Projeto Integrador da discipl
 | Nome | GitHub |
 |---|---|
 | Isis Marieli Da Silva Moura | [@IsisMarieli](https://github.com/IsisMarieli) |
-| _nome_ | _@usuario_ |
+| Maria Clara Trevizane Buonafina | [@mariactbuonafina](https://github.com/mariactbuonafina) |
 | _nome_ | _@usuario_ |
 | _nome_ | _@usuario_ |
 

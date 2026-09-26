@@ -10,29 +10,51 @@
 
 ## BO selecionado
 
-- **Título do BO:**
-- **URL:**
-- **Área temática:**
-- **Órgão/secretaria responsável (se informado):**
+- **Título do BO:** Limitação de Acesso a Dados Estratégicos do Território para Tomadores de Decisão em Saúde
+- **URL:** https://coreto.app.emprel.gov.br/banco-de-bo/limitacao-de-acesso-a-dados-estrategicos-do-territorio-para-tomadores-
+- **Área temática:** Saúde
+- **Órgão/secretaria responsável (se informado):** (Não vi nome explícito, mas prov saúde de recife)
 
 ## Descrição do problema
 
-_Explique, com as palavras da equipe, qual é o problema apresentado no BO. Não copie apenas o texto do site: mostre que o grupo compreendeu a situação._
+O problema identificado pela equipe é a dificuldade que gestores e profissionais da saúde do Recife enfrentam para acessar, cruzar e interpretar informações sobre as necessidades de saúde de diferentes territórios/áreas da cidade.
+
+Embora existam dados produzidos por diferentes serviços e sistemas públicos, essas informações podem estar distribuídas em diferentes fontes, formatos e níveis de detalhamento. Isso dificulta uma visão integrada do território e torna mais trabalhoso identificar quais regiões apresentam maior necessidade, quais problemas de saúde são mais recorrentes e onde os recursos e ações devem ser priorizados.
+
+Na prática, a ausência de uma visão territorial integrada pode fazer com que decisões de planejamento sejam tomadas com informações fragmentadas ou pouco contextualizadas, reduzindo a capacidade de antecipar demandas e direcionar ações de forma mais eficiente e equitativa.
 
 ## Delimitação
 
-_O problema do BO costuma ser amplo. Qual recorte a equipe vai atacar? O que fica de fora?_
+Desenvolver uma solução de integração, organização e visualização de dados de saúde territorializados do Recife, permitindo que gestores e profissionais autorizados consultem informações relevantes por território e identifiquem padrões, necessidades e possíveis áreas prioritárias para intervenção.
 
-- **Parte do problema que será tratada:**
-- **Parte do problema que NÃO será tratada:**
+**Parte do problema que será tratada:**
+- integração de diferentes fontes públicas de dados;
+- organização dos dados por território;
+- visualização das informações em mapas e dashboards;
+- cruzamento de indicadores de saúde com características territoriais;
+- identificação de regiões que apresentam maior concentração de determinados problemas ou necessidades;
+- apoio à priorização de ações e recursos pelos gestores.
+
+
+**Parte do problema que NÃO será tratada:**
+- substituir os sistemas oficiais de gestão da saúde;
+- realizar diagnóstico médico individual;
+- substituir a decisão dos profissionais ou gestores;
+- prever doenças individualmente;
+- coletar ou expor dados pessoais identificáveis de pacientes;
+- definir automaticamente onde recursos públicos devem ser destinados;
+- realizar atendimento ou acompanhamento clínico dos cidadãos;
+- resolver problemas estruturais de infraestrutura ou falta de profissionais da rede.
+
+
 
 ## Quem é afetado
 
-_Identifique os grupos de pessoas ou instituições afetados pelo problema (cidadãos, servidores, empresas, bairros específicos etc.)._
+Precisa ser melhor definido.
 
 | Grupo afetado | Como é afetado? |
 |---|---|
-| | |
+| Gestores municipais de saúde | Possuem dificuldade para obter uma visão integrada do território e utilizar diferentes indicadores para apoiar o planejamento e a priorização de ações. |
 
 ## Onde acontece
 

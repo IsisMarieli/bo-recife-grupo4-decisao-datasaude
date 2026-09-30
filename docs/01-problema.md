@@ -13,7 +13,7 @@
 - **Título do BO:** Limitação de Acesso a Dados Estratégicos do Território para Tomadores de Decisão em Saúde
 - **URL:** https://coreto.app.emprel.gov.br/banco-de-bo/limitacao-de-acesso-a-dados-estrategicos-do-territorio-para-tomadores-
 - **Área temática:** Saúde
-- **Órgão/secretaria responsável (se informado):** (Não vi nome explícito, mas prov saúde de recife)
+- **Órgão/secretaria responsável (se informado):** Secretaria de Saúde do Recife
 
 ## Descrição do problema
 

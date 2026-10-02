@@ -4,10 +4,10 @@
 
 ## Problema e investigação
 
-- [ ] BO escolhido.
-- [ ] Link do BO informado.
-- [ ] Problema descrito, Público afetado identificado.
-- [ ] Causas analisadas, Consequências analisadas.
+- [x] BO escolhido.
+- [x] Link do BO informado.
+- [x] Problema descrito, Público afetado identificado.
+- [x] Causas analisadas, Consequências analisadas.
 - [ ] Soluções existentes pesquisadas.
 
 ## Proposta e requisitos

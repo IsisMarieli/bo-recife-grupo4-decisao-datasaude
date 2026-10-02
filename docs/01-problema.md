@@ -13,7 +13,7 @@
 - **Título do BO:** Limitação de Acesso a Dados Estratégicos do Território para Tomadores de Decisão em Saúde
 - **URL:** https://coreto.app.emprel.gov.br/banco-de-bo/limitacao-de-acesso-a-dados-estrategicos-do-territorio-para-tomadores-
 - **Área temática:** Saúde
-- **Órgão/secretaria responsável (se informado):** (Não vi nome explícito, mas prov saúde de recife)
+- **Órgão/secretaria responsável (se informado):** Secretaria de Saúde do Recife
 
 ## Descrição do problema
 
@@ -47,35 +47,42 @@ Desenvolver uma solução de integração, organização e visualização de dad
 - resolver problemas estruturais de infraestrutura ou falta de profissionais da rede.
 
 
-
 ## Quem é afetado
 
-Precisa ser melhor definido.
+O problema afeta principalmente os profissionais envolvidos no **planejamento, gestão e acompanhamento das ações de saúde no Recife**, que dependem de informações territoriais para tomar decisões.
 
 | Grupo afetado | Como é afetado? |
 |---|---|
-| Gestores municipais de saúde | Possuem dificuldade para obter uma visão integrada do território e utilizar diferentes indicadores para apoiar o planejamento e a priorização de ações. |
+| **Gestores municipais de saúde** | Enfrentam dificuldades para reunir e interpretar diferentes indicadores, dificultando uma visão integrada das necessidades de cada território e a priorização de ações e recursos. |
+| **Gestores das unidades e distritos de saúde** | Podem ter dificuldade para identificar as principais necessidades da população de sua área de atuação e comparar diferentes territórios. |
+| **Equipes de planejamento e vigilância em saúde** | Precisam consultar e cruzar informações de diferentes fontes para acompanhar indicadores e identificar padrões ou áreas que demandam maior atenção. |
+| **Agentes Comunitários de Saúde e profissionais da atenção básica** | Possuem contato direto com as necessidades da população, mas podem ter acesso limitado a informações territoriais consolidadas que apoiem o planejamento de suas ações. |
+| **População do Recife** | É afetada indiretamente quando as decisões sobre ações, serviços e recursos não consideram de forma adequada as necessidades específicas de cada território. |
 
 ## Onde acontece
 
-_Em que local, território, serviço ou processo o problema ocorre?_
+O problema ocorre no **município do Recife**, principalmente nos processos de **planejamento, monitoramento e tomada de decisão da gestão pública de saúde**.
+
+A dificuldade está relacionada ao acesso e à integração de informações produzidas por diferentes fontes e serviços, que precisam ser analisadas de forma territorializada para permitir uma melhor compreensão das necessidades da população.
+
+O projeto considera como recorte territorial os diferentes níveis disponíveis nas bases de dados, como **distritos sanitários, bairros e áreas de abrangência dos serviços de saúde**, conforme a disponibilidade e qualidade dos dados utilizados.
 
 ## Importância
 
-_Por que vale a pena resolver este problema? Qual a relevância para a cidade e para as pessoas?_
+Resolver esse problema é relevante porque as necessidades de saúde **não são distribuídas de maneira uniforme pelo território do Recife**. Diferentes regiões podem apresentar características populacionais, condições sociais e demandas de saúde distintas.
+
+Uma visão integrada e territorializada dos dados pode apoiar gestores e profissionais na identificação dessas diferenças, permitindo **planejar ações de forma mais direcionada, acompanhar indicadores e priorizar recursos de acordo com as necessidades encontradas**.
+
+Além disso, facilitar o acesso às informações pode reduzir o tempo necessário para reunir e organizar dados de diferentes fontes, permitindo que os profissionais concentrem seus esforços na **análise e tomada de decisão baseada em evidências**.
 
 ## Consequências
 
-_O que acontece se o problema continuar sem solução?_
+Se o problema continuar sem solução:
 
--
--
--
+- As decisões podem continuar sendo tomadas com **informações fragmentadas**, dificultando a compreensão das necessidades específicas de cada território.
+- Pode haver **dificuldade na identificação e priorização de regiões que demandam maior atenção**, comprometendo o direcionamento das ações de saúde.
+- Os recursos públicos podem ser **alocados de forma menos eficiente e equitativa**, quando as diferenças entre os territórios não são adequadamente consideradas.
 
 ## Pergunta central
 
-> A pergunta central orienta todo o projeto. Ela deve ser específica e indicar **quem** será beneficiado e **o que** se pretende melhorar.
->
-> **Exemplo de estrutura (não é resposta):** "Como poderíamos _[ação]_ para _[público]_ de modo que _[resultado esperado]_?"
-
-Como poderíamos _________________________________________________?
+> **Como poderíamos integrar e disponibilizar dados territorializados de saúde para gestores e profissionais do Recife, de modo a facilitar a identificação de necessidades locais e apoiar a priorização de ações e recursos de forma mais informada e equitativa?**

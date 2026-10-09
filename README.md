@@ -2,7 +2,9 @@
 
 **Projeto Integrador — Banco de Oportunidades do Recife**
 
-Este repositório é o modelo do Projeto Integrador da disciplina de Análise e Desenvolvimento de Sistemas. O grupo seleciona um problema real publicado no Banco de Oportunidades (BO) da Prefeitura do Recife, investiga o problema, propõe uma solução tecnológica (1ª Avaliação) e desenvolve um MVP funcional (2ª Avaliação).
+Projeto voltado ao acesso a dados estratégicos do território para tomada de decisão em saúde.
+
+Este repositório foi criado a partir do modelo do Projeto Integrador da disciplina de Tópicos integradores. O grupo seleciona um problema real publicado no Banco de Oportunidades (BO) da Prefeitura do Recife, investiga o problema, propõe uma solução tecnológica (1ª Avaliação) e desenvolve um MVP funcional (2ª Avaliação).
 
 🔗 Banco de Oportunidades: https://bancodeoportunidades.recife.pe.gov.br/
 
@@ -12,7 +14,7 @@ Este repositório é o modelo do Projeto Integrador da disciplina de Análise e 
 
 | Campo | Informação |
 |---|---|
-| **Turma** | 5NA — Embarque Digital / Noite |
+| **Turma** | 5NA - EMBARQUE DIGITAL/NOITE |
 | **Grupo** | 4 |
 | **Nome do projeto** | Saúde Estratégica |
 | **BO escolhido** | Limitação de acesso a dados estratégicos do território para tomadas de decisão em saúde |
@@ -24,77 +26,79 @@ Este repositório é o modelo do Projeto Integrador da disciplina de Análise e 
 |---|---|
 | Isis Marieli Da Silva Moura | [@IsisMarieli](https://github.com/IsisMarieli) |
 | Maria Clara Trevizane Buonafina | [@mariactbuonafina](https://github.com/mariactbuonafina) |
-| Emilly Dantas da Silva Bento | [@Emilly-stargirl](https://github.com/Emilly-stargirl) |
-| Luis Fernando Andrade da Silva | [@fernandoferard](https://github.com/fernandoferard) |
-| Eychila Meirelle da Silva | [@EychilaSilva](https://github.com/EychilaSilva) | 
-| Maria Eduarda Trevizane Buonafina | [@MariaEduardaTBuonafina](https://github.com/MariaEduardaTBuonafina) | 
+| Emilly Dantas da Silva Bento | [@Emilly-stargirl](https://github.com/Emilly-stargirl)|
+| Luis Fernando Andrade da Silva |[@fernandoferard](https://github.com/fernandoferard) |
+| _nome_ | _@usuario_ |
+| _nome_ | _@usuario_ |
 
 ---
 
 ## Critério central do projeto
 
-Não estamos procurando o projeto tecnicamente mais complexo. Estamos procurando uma solução em que seja possível demonstrar claramente a relação:
+Não buscamos o projeto tecnicamente mais complexo, e sim uma solução em que seja possível demonstrar claramente a relação:
 
-```text
-PROBLEMA ➔ EVIDÊNCIA ➔ SOLUÇÃO ➔ IMPLEMENTAÇÃO ➔ TESTE ➔ RESULTADO
+```
+PROBLEMA → EVIDÊNCIA → SOLUÇÃO → IMPLEMENTAÇÃO → TESTE → RESULTADO
 ```
 
 ---
 
-## Visão Geral do Problema
+## Problema
+
+
 
 - **Qual é o problema?**  
-  O principal desafio identificado na gestão de saúde pública não é a falta de dados, mas sim a sua fragmentação em diferentes fontes, formatos incompatíveis e sistemas isolados (como SINAN, SIM, SIH/SUS, SIA/SUS, CNES, e-SUS APS e IBGE). Como consequência dessa dispersão, a capacidade dos gestores de cruzar informações, identificar padrões, acompanhar indicadores e utilizar evidências para otimizar o planejamento, a priorização de ações e a alocação de recursos públicos fica comprometida.
+O principal desafio identificado no Recife não é a falta de dados de saúde, mas sim a sua fragmentação em diferentes fontes, formatos e níveis de detalhamento, o que impede a obtenção de uma visão integrada e territorialmente contextualizada. Como consequência dessa dispersão, a capacidade dos gestores de cruzar informações, identificar padrões, acompanhar indicadores e utilizar evidências para otimizar o planejamento, a priorização de ações e a alocação de recursos públicos fica comprometida.
 
 - **Quem é afetado?**  
-  Gestores públicos e tomadores de decisão, profissionais de saúde da ponta (médicos, enfermeiros, agentes comunitários), a população (usuários do SUS) e pesquisadores (acadêmicos e analistas de dados).
-
+Com base na fragmentação dos dados de saúde no Recife, o problema gera impactos diretos e indiretos em diferentes atores da sociedade. Sendo os principais grupos afetados: Gestores públicos e tomadores de decisão, profissionais de saúde da ponta (médicos, enfermeiros, agentes comunitários), população (usuários do SUS no Recife), pesquisadores (acadêmicos e analistas de dados).
+  
 - **Por que o problema acontece?**  
-  Devido à fragmentação, despadronização e descentralização de bases de dados geradas por diferentes órgãos, secretarias ou departamentos.
+Este tipo de problema acontece devido a fragmentação e despadronização dos dados por diferentes órgãos, secretarias ou departamentos.
 
 - **Como é tratado atualmente?**  
-  Atualmente, a gestão e o tratamento desse problema ocorrem por meio de iniciativas fragmentadas e processos manuais demorados em planilhas isoladas. Os dados de saúde alimentam sistemas federais de maneira rígida, o que dificulta análises hiperlocalizadas ou cruzamentos flexíveis com dados municipais.
-
+Atualmente, a gestão e o tratamento desse problema costumam ocorrer por meio de iniciativas fragmentadas e processos que, muitas vezes, dependem de esforços manuais. Grande parte dos dados de sáude alimenta sistemas federais obrigatórios (como DATASUS, e-SUS APS, SIM para mortalidade e SINAN para agravos de notificação). Esses dados são estruturados de maneira rígida, o que dificulta análises hiperlocalizadas ou cruzamenos flexíveis com dados municipais de outras áreas (urbanismo e assistência social).
+  
 - **Qual parte do problema será atacada?**  
-  * **Heterogeneidade (Despadronização):** Criação de regras, nomenclaturas e chaves de cruzamento comuns para que bases de dados de diferentes fontes "conversem" entre si.  
-  * **Esforço operacional manual (Automação):** Substituição de planilhas isoladas por fluxos automatizados ou centralizados de integração de dados.  
-  * **Isolamento territorial (Contextualização geográfica):** Consolidação de um padrão georreferenciado único por município/região de saúde, permitindo cruzar saúde com saneamento, habitação e assistência social de forma visual e espacial.
+Ataca barreiras como: heterogeneidade (despadronização) - Criação de regras, nomenclaturas e chaves de cruzamento comuns para que bases de dados de diferentes fontes "conversem" entre si.  
+O esforço operacional manual (Automação do cruzamento): Substituição de planilhas isoladas e processos manuais demorados por fluxos automatizados ou centralizados de integração de dados.  
+O isolamento territorial (Contextualização geográfica): A consolidação de um padrão georreferenciado único (como geocodificação por bairros, regiões político-administrativas ou setores censitários do Recife), permitindo cruzar saúde com saneamento, habitação e assistência social de forma visual e espacial.
 
----
+## Evidências  
 
-## Solução proposta
+A principal documentação sobre este desafio no Recife foi publicada recentemente na Revista Saúde em Debate (SciELO, final de 2025), no artigo intitulado "Superando a histórica fragmentação de dados no SUS: interoperabilidade em Recife e na Ebserh" disponível em: https://saudeemdebate.org.br/sed/article/view/10011#:~:text=Superando%20a%20hist%C3%B3rica%20fragmenta%C3%A7%C3%A3o%20de%20dados%20no%20SUS%3A%20interoperabilidade%20em%20Recife%20e%20na%20Ebserh.
 
-O **Saúde Estratégica** é uma plataforma web e painel digital integrado de inteligência territorial e apoio à decisão para a gestão do SUS. A solução transforma dados dispersos de múltiplas fontes públicas em informações acionáveis através de quatro eixos principais:
-1. **Visão Geral (Painel Estadual):** Painel executivo unificado com indicadores macro e alertas semanais para a vigilância.
-2. **Mapa de Necessidades:** Experiência cartográfica interativa focada nos 185 municípios pernambucanos para identificar pressões e criticidade na rede.
-3. **Indicadores de Saúde:** Centro analítico estruturado com 24 indicadores organizados por blocos temáticos (*Epidemiológicos, Assistenciais e Estruturais*).
-4. **Priorização (Ciclo de Planejamento):** Painel de governança em formato de fluxo de trabalho (*Pendentes*, *Em Análise*, *Concluídas*) para registrar encaminhamentos e monitorar prioridades.
+## Solução proposta  
 
----
-
-## Arquitetura e Tecnologias
-
-A arquitetura do sistema adota um modelo em **três camadas** (cliente-servidor), separando a ingestão de dados da aplicação principal:
-- **Frontend:** Angular + TypeScript, Leaflet (mapas), Chart.js (gráficos) e Angular Material.
-- **Backend:** Python + FastAPI para exposição de endpoints REST e regras de negócio.
-- **Pipeline de Ingestão:** Python + Pandas + PySUS para coleta periódica, limpeza e padronização dos dados do DATASUS e IBGE.
-- **Banco de Dados:** PostgreSQL para armazenamento dos dados agregados.
-
-| Camada | Tecnologia | Justificativa |
-|---|---|---|
-| Frontend | Angular + TypeScript, Leaflet, Chart.js, Angular Material | Organiza painéis complexos e componentes reutilizáveis; Leaflet é leve para mapas interativos. |
-| Backend | Python + FastAPI | Desenvolvimento ágil, documentação automática (Swagger) e integração direta com Pandas. |
-| Banco de dados | PostgreSQL | Adequado para dados tabulares agregados e consultas relacionais por período e território. |
-| Hospedagem | Vercel (frontend); Render (backend e banco) | Planos gratuitos e deploy contínuo integrado ao GitHub. |
-
----
+A solução desenvolvida consiste no Saúde Estratégica, um painel digital integrado de
+inteligência e apoio à decisão para a gestão do SUS. A plataforma transforma dados
+dispersos de múltiplas fontes públicas em informação territorialmente contextualizada e
+acionável, permitindo uma gestão baseada em evidências.
 
 ## Escopo do MVP
 
-- [x] **Visão Geral:** Dashboard executivo com cartões de indicadores (CNES, SIH, SIA, IBGE) e alertas de prioridade semanal.
-- [x] **Mapa de Necessidades:** Mapa interativo de Pernambuco com filtros de Região de Saúde, Nível de Atenção e camadas temáticas.
-- [x] **Indicadores de Saúde:** Organização de blocos temáticos baseados nas bases do DATASUS com opções de comparação.
-- [x] **Priorização:** Gestão de itens pendentes e em análise regional com foco no ciclo de planejamento estadual.
+_Listar as funcionalidades essenciais que serão entregues na AV2._
+
+- [ ] Integração e Estruturação de dados
+- [ ] Dashboard de visão geral
+- [ ] Mapa interativo de necessidades
+- [ ] Painel de indicadores de saúde
+- [ ] Módulo de priorização
+
+## Tecnologias
+
+_Definir depois da AV1._  
+
+| Camada | Tecnologia |
+|---|---|
+| Front-end | React |
+| Back-end | FastAPI |
+| Banco de dados | PostegreSQL |
+| Análise e tratamento de dados | Python, Pandas, Numpy e bibliotecas de visualização de dados |
+
+## Testes e resultados
+
+_Registrar como a solução será testada e quais resultados foram obtidos (AV2)._
 
 ---
 
@@ -108,19 +112,8 @@ A arquitetura do sistema adota um modelo em **três camadas** (cliente-servidor)
 | Desenvolvimento | Como transformar a proposta em software? | MVP |
 | Testes | A solução realmente atende ao problema? | Evidências |
 | 2ª Avaliação | A solução funciona na prática? | MVP funcional + demonstração |
-
 ---
 
-## Como executar o projeto
-
-*Instruções a serem detalhadas na entrega da AV2.*
-
-## Versionamento e Avaliações
-
-- **1ª Avaliação (AV1):** Tag `v1.0-av1` (Projeto da solução e documentação em `docs/`).
-- **2ª Avaliação (AV2):** Tag `v2.0-av2` (MVP funcional implementado em `src/`).
-
----
 
 ### Clonar projeto
 

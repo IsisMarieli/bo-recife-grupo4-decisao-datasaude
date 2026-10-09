@@ -57,25 +57,15 @@ Precisa ser melhor definido.
 | Gestores municipais de saúde | Possuem dificuldade para obter uma visão integrada do território e utilizar diferentes indicadores para apoiar o planejamento e a priorização de ações. |
 
 ## Onde acontece
-
-_Em que local, território, serviço ou processo o problema ocorre?_
+O problema ocorre na esfera de planejamento da Secretaria de Saúde de Pernambuco e das secretarias municipais (com foco na Região Metropolitana do Recife e nos 185 municípios do estado), especificamente nos processos de monitoramento epidemiológico, regulação assistencial, alocação de equipes e tomada de decisão estratégica baseada em dados públicos de saúde.
 
 ## Importância
-
-_Por que vale a pena resolver este problema? Qual a relevância para a cidade e para as pessoas?_
+Vale a pena resolver este problema porque a descentralização e a fragmentação dos dados do DATASUS impedem que gestores enxerguem rapidamente as reais necessidades de cada território. Solucionar essa lacuna permite otimizar a alocação de recursos públicos, antecipar surtos epidêmicos (como arboviroses), reduzir internações evitáveis e garantir mais equidade e eficiência no atendimento à população do SUS.
 
 ## Consequências
-
-_O que acontece se o problema continuar sem solução?_
-
--
--
--
+- Atraso na identificação de surtos e epidemias locais.
+- Direcionamento ineficiente ou tardio de recursos financeiros, insumos e profissionais para as áreas mais críticas.
+- Tomada de decisão baseada em percepções subjetivas ou planilhas manuais isoladas, em vez de evidências territoriais consolidadas.
 
 ## Pergunta central
-
-> A pergunta central orienta todo o projeto. Ela deve ser específica e indicar **quem** será beneficiado e **o que** se pretende melhorar.
->
-> **Exemplo de estrutura (não é resposta):** "Como poderíamos _[ação]_ para _[público]_ de modo que _[resultado esperado]_?"
-
-Como poderíamos _________________________________________________?
+Como poderíamos integrar e contextualizar espacialmente os dados públicos fragmentados do DATASUS para gestores de saúde de Pernambuco, de modo que seja possível agilizar diagnósticos territoriais e otimizar a priorização de ações e recursos públicos?

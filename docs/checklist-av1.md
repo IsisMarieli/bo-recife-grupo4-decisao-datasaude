@@ -4,9 +4,9 @@
 
 ## Problema e investigação
 
-- [ x ] BO escolhido.
-- [ x ] Link do BO informado.
-- [ x ] Problema descrito, Público afetado identificado.
+- [x] BO escolhido.
+- [x] Link do BO informado.
+- [x] Problema descrito, Público afetado identificado.
 - [ ] Causas analisadas, Consequências analisadas.
 - [ ] Soluções existentes pesquisadas.
 
@@ -17,12 +17,12 @@
 
 ## Protótipo e arquitetura
 
-- [ x ] Arquitetura inicial
-- [ x ] Tecnologias justificadas
+- [x] Arquitetura inicial
+- [x] Tecnologias justificadas
 
 ## MVP e organização
 
-- [ ] Escopo do MVP definido, README preenchido
+- [x] Escopo do MVP definido, README preenchido
 
 ## Entrega
 

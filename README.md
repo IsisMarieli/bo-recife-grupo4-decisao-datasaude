@@ -45,18 +45,24 @@ PROBLEMA → EVIDÊNCIA → SOLUÇÃO → IMPLEMENTAÇÃO → TESTE → RESULTAD
 
 ## Problema
 
-_Descrever problema:_
 
-- **Qual é o problema?**
-- O principal desafio identificado no Recife não é a falta de dados de saúde, mas sim a sua fragmentação em diferentes fontes, formatos e níveis de detalhamento, o que impede a obtenção de uma visão integrada e territorialmente contextualizada. Como consequência dessa dispersão, a capacidade dos gestores de cruzar informações, identificar padrões, acompanhar indicadores e utilizar evidências para otimizar o planejamento, a priorização de ações e a alocação de recursos públicos fica comprometida.
 
-- **Quem é afetado?**
+- **Qual é o problema?**  
+O principal desafio identificado no Recife não é a falta de dados de saúde, mas sim a sua fragmentação em diferentes fontes, formatos e níveis de detalhamento, o que impede a obtenção de uma visão integrada e territorialmente contextualizada. Como consequência dessa dispersão, a capacidade dos gestores de cruzar informações, identificar padrões, acompanhar indicadores e utilizar evidências para otimizar o planejamento, a priorização de ações e a alocação de recursos públicos fica comprometida.
+
+- **Quem é afetado?**  
+Com base na fragmentação dos dados de saúde no Recife, o problema gera impactos diretos e indiretos em diferentes atores da sociedade. Sendo os principais grupos afetados: Gestores públicos e tomadores de decisão, profissionais de saúde da ponta (médicos, enfermeiros, agentes comunitários), população (usuários do SUS no Recife), pesquisadores (acadêmicos e analistas de dados).
   
-- **Por que o problema acontece?**
+- **Por que o problema acontece?**  
+Este tipo de problema acontece devido a fragmentação e despadronização dos dados por diferentes órgãos, secretarias ou departamentos.
+
+- **Como é tratado atualmente?**  
+Atualmente, a gestão e o tratamento desse problema costumam ocorrer por meio de iniciativas fragmentadas e processos que, muitas vezes, dependem de esforços manuais. Grande parte dos dados de sáude alimenta sistemas federais obrigatórios (como DATASUS, e-SUS APS, SIM para mortalidade e SINAN para agravos de notificação). Esses dados são estruturados de maneira rígida, o que dificulta análises hiperlocalizadas ou cruzamenos flexíveis com dados municipais de outras áreas (urbanismo e assistência social).
   
-- **Como é tratado atualmente?**
-  
-- **Qual parte do problema será atacada?**
+- **Qual parte do problema será atacada?**  
+Ataca barreiras como: heterogeneidade (despadronização) - Criação de regras, nomenclaturas e chaves de cruzamento comuns para que bases de dados de diferentes fontes "conversem" entre si.  
+O esforço operacional manual (Automação do cruzamento): Substituição de planilhas isoladas e processos manuais demorados por fluxos automatizados ou centralizados de integração de dados.  
+O isolamento territorial (Contextualização geográfica): A consolidação de um padrão georreferenciado único (como geocodificação por bairros, regiões político-administrativas ou setores censitários do Recife), permitindo cruzar saúde com saneamento, habitação e assistência social de forma visual e espacial.
 
 ## Evidências
 

@@ -48,9 +48,14 @@ PROBLEMA → EVIDÊNCIA → SOLUÇÃO → IMPLEMENTAÇÃO → TESTE → RESULTAD
 _Descrever problema:_
 
 - **Qual é o problema?**
+O principal desafio identificado no Recife não é a falta de dados de saúde, mas sim a sua fragmentação em diferentes fontes, formatos e níveis de detalhamento, o que impede a obtenção de uma visão integrada e territorialmente contextualizada. Como consequência dessa dispersão, a capacidade dos gestores de cruzar informações, identificar padrões, acompanhar indicadores e utilizar evidências para otimizar o planejamento, a priorização de ações e a alocação de recursos públicos fica comprometida.
+
 - **Quem é afetado?**
+  
 - **Por que o problema acontece?**
+  
 - **Como é tratado atualmente?**
+  
 - **Qual parte do problema será atacada?**
 
 ## Evidências

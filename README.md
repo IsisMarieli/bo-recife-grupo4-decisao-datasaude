@@ -2,9 +2,7 @@
 
 **Projeto Integrador — Banco de Oportunidades do Recife**
 
-Plataforma web de apoio à tomada de decisão em saúde pública, desenvolvida para facilitar o acesso, a integração e a interpretação de dados do DATASUS em Pernambuco[cite: 18, 19].
-
-Este repositório foi criado a partir do modelo do Projeto Integrador da disciplina de Tópicos Integradores. O grupo seleciona um problema real publicado no Banco de Oportunidades (BO) da Prefeitura do Recife, investiga o problema, propõe uma solução tecnológica (1ª Avaliação) e desenvolve um MVP funcional (2ª Avaliação).
+Este repositório é o modelo do Projeto Integrador da disciplina de Análise e Desenvolvimento de Sistemas. O grupo seleciona um problema real publicado no Banco de Oportunidades (BO) da Prefeitura do Recife, investiga o problema, propõe uma solução tecnológica (1ª Avaliação) e desenvolve um MVP funcional (2ª Avaliação).
 
 🔗 Banco de Oportunidades: https://bancodeoportunidades.recife.pe.gov.br/
 
@@ -14,7 +12,7 @@ Este repositório foi criado a partir do modelo do Projeto Integrador da discipl
 
 | Campo | Informação |
 |---|---|
-| **Turma** | 5NA - EMBARQUE DIGITAL/NOITE |
+| **Turma** | 5NA — Embarque Digital / Noite |
 | **Grupo** | 4 |
 | **Nome do projeto** | Saúde Estratégica |
 | **BO escolhido** | Limitação de acesso a dados estratégicos do território para tomadas de decisão em saúde |
@@ -24,88 +22,39 @@ Este repositório foi criado a partir do modelo do Projeto Integrador da discipl
 
 | Nome | GitHub |
 |---|---|
-| Isis Marieli Da Silva Moura | [@IsisMarieli](https://github.com/IsisMarieli)[cite: 27] |
-| Maria Clara Trevizane Buonafina | [@mariactbuonafina](https://github.com/mariactbuonafina)[cite: 27] |
-| Emilly Dantas da Silva Bento | [@Emilly-stargirl](https://github.com/Emilly-stargirl)[cite: 27] |
-| Luis Fernando Andrade da Silva | [@fernandoferard](https://github.com/fernandoferard)[cite: 27] |
-| Eychila Meirelle da Silva | [@EychilaSilva](https://github.com/EychilaSilva)[cite: 27] | 
-| Maria Eduarda Trevizane Buonafina | [@MariaEduardaTBuonafina](https://github.com/MariaEduardaTBuonafina)[cite: 27] | 
+| Isis Marieli Da Silva Moura | [@IsisMarieli](https://github.com/IsisMarieli) |
+| Maria Clara Trevizane Buonafina | [@mariactbuonafina](https://github.com/mariactbuonafina) |
+| Emilly Dantas da Silva Bento | [@Emilly-stargirl](https://github.com/Emilly-stargirl) |
+| Luis Fernando Andrade da Silva | [@fernandoferard](https://github.com/fernandoferard) |
+| Eychila Meirelle da Silva | [@EychilaSilva](https://github.com/EychilaSilva) | 
+| Maria Eduarda Trevizane Buonafina | [@MariaEduardaTBuonafina](https://github.com/MariaEduardaTBuonafina) | 
 
 ---
 
 ## Critério central do projeto
 
-Não buscamos o projeto tecnicamente mais complexo, e sim uma solução em que seja possível demonstrar claramente a relação:
+Não estamos procurando o projeto tecnicamente mais complexo. Estamos procurando uma solução em que seja possível demonstrar claramente a relação:
 
-```
-PROBLEMA → EVIDÊNCIA → SOLUÇÃO → IMPLEMENTAÇÃO → TESTE → RESULTADO
-```
-
-Aqui está o seu ficheiro **`README.md`** completo e atualizado, integrando todas as informações da equipa, do problema, da arquitetura técnica e do projeto apresentado:
-
-```markdown
-# Saúde Estratégica
-
-**Projeto Integrador — Banco de Oportunidades do Recife**
-
-Plataforma web de apoio à tomada de decisão em saúde pública, desenvolvida para facilitar o acesso, a integração e a interpretação de dados do DATASUS em Pernambuco[cite: 18, 19].
-
-Este repositório foi criado a partir do modelo do Projeto Integrador da disciplina de Tópicos Integradores. O grupo seleciona um problema real publicado no Banco de Oportunidades (BO) da Prefeitura do Recife, investiga o problema, propõe uma solução tecnológica (1ª Avaliação) e desenvolve um MVP funcional (2ª Avaliação).
-
-🔗 Banco de Oportunidades: https://bancodeoportunidades.recife.pe.gov.br/
-
----
-
-## Identificação da equipe
-
-| Campo | Informação |
-|---|---|
-| **Turma** | 5NA - EMBARQUE DIGITAL/NOITE |
-| **Grupo** | 4 |
-| **Nome do projeto** | Saúde Estratégica |
-| **BO escolhido** | Limitação de acesso a dados estratégicos do território para tomadas de decisão em saúde |
-| **Link do BO** | https://coreto.app.emprel.gov.br/banco-de-bo/limitacao-de-acesso-a-dados-estrategicos-do-territorio-para-tomadores- |
-
-### Integrantes
-
-| Nome | GitHub |
-|---|---|
-| Isis Marieli Da Silva Moura | [@IsisMarieli](https://github.com/IsisMarieli)[cite: 27] |
-| Maria Clara Trevizane Buonafina | [@mariactbuonafina](https://github.com/mariactbuonafina)[cite: 27] |
-| Emilly Dantas da Silva Bento | [@Emilly-stargirl](https://github.com/Emilly-stargirl)[cite: 27] |
-| Luis Fernando Andrade da Silva | [@fernandoferard](https://github.com/fernandoferard)[cite: 27] |
-| Eychila Meirelle da Silva | [@EychilaSilva](https://github.com/EychilaSilva)[cite: 27] | 
-| Maria Eduarda Trevizane Buonafina | [@MariaEduardaTBuonafina](https://github.com/MariaEduardaTBuonafina)[cite: 27] | 
-
----
-
-## Critério central do projeto
-
-Não buscamos o projeto tecnicamente mais complexo, e sim uma solução em que seja possível demonstrar claramente a relação:
-
-
-```
-
-PROBLEMA → EVIDÊNCIA → SOLUÇÃO → IMPLEMENTAÇÃO → TESTE → RESULTADO
-
+```text
+PROBLEMA ➔ EVIDÊNCIA ➔ SOLUÇÃO ➔ IMPLEMENTAÇÃO ➔ TESTE ➔ RESULTADO
 ```
 
 ---
 
-## Problema
+## Visão Geral do Problema
 
 - **Qual é o problema?**  
-  O principal desafio identificado na gestão de saúde pública não é a falta de dados, mas sim a sua fragmentação em diferentes fontes, formatos incompatíveis e sistemas isolados (como SINAN, SIM, SIH/SUS, SIA/SUS, CNES, e-SUS APS e IBGE)[cite: 19, 20]. Como consequência dessa dispersão, a capacidade dos gestores de cruzar informações, identificar padrões, acompanhar indicadores e utilizar evidências para otimizar o planejamento, a priorização de ações e a alocação de recursos públicos fica comprometida[cite: 20].
+  O principal desafio identificado na gestão de saúde pública não é a falta de dados, mas sim a sua fragmentação em diferentes fontes, formatos incompatíveis e sistemas isolados (como SINAN, SIM, SIH/SUS, SIA/SUS, CNES, e-SUS APS e IBGE). Como consequência dessa dispersão, a capacidade dos gestores de cruzar informações, identificar padrões, acompanhar indicadores e utilizar evidências para otimizar o planejamento, a priorização de ações e a alocação de recursos públicos fica comprometida.
 
 - **Quem é afetado?**  
   Gestores públicos e tomadores de decisão, profissionais de saúde da ponta (médicos, enfermeiros, agentes comunitários), a população (usuários do SUS) e pesquisadores (acadêmicos e analistas de dados).
-  
+
 - **Por que o problema acontece?**  
-  Devido à fragmentação, despadronização e descentralização de bases de dados geradas por diferentes órgãos, secretarias ou departamentos[cite: 20].
+  Devido à fragmentação, despadronização e descentralização de bases de dados geradas por diferentes órgãos, secretarias ou departamentos.
 
 - **Como é tratado atualmente?**  
   Atualmente, a gestão e o tratamento desse problema ocorrem por meio de iniciativas fragmentadas e processos manuais demorados em planilhas isoladas. Os dados de saúde alimentam sistemas federais de maneira rígida, o que dificulta análises hiperlocalizadas ou cruzamentos flexíveis com dados municipais.
-  
+
 - **Qual parte do problema será atacada?**  
   * **Heterogeneidade (Despadronização):** Criação de regras, nomenclaturas e chaves de cruzamento comuns para que bases de dados de diferentes fontes "conversem" entre si.  
   * **Esforço operacional manual (Automação):** Substituição de planilhas isoladas por fluxos automatizados ou centralizados de integração de dados.  
@@ -113,21 +62,13 @@ PROBLEMA → EVIDÊNCIA → SOLUÇÃO → IMPLEMENTAÇÃO → TESTE → RESULTAD
 
 ---
 
-## Evidências
-
-* Dificuldade de cruzamento nativo e unificado entre as bases de dados oficiais de saúde pública do SUS (DATASUS, SINAN, SIM, SIH, SIA, CNES)[cite: 19, 20].
-* Dispersão de dados que limita a capacidade dos gestores de acompanhar indicadores e planejar ações baseadas em evidências[cite: 20].
-* Documentação complementar e detalhes da pesquisa detalhados na pasta `docs/` do repositório.
-
----
-
 ## Solução proposta
 
-O **Saúde Estratégica** é uma plataforma web e painel digital integrado de inteligência territorial e apoio à decisão para a gestão do SUS[cite: 19, 21]. A solução transforma dados dispersos de múltiplas fontes públicas em informações acionáveis através de quatro eixos principais[cite: 21]:
-1. **Visão Geral (Painel Estadual):** Painel executivo unificado com indicadores macro e alertas semanais para a vigilância[cite: 13, 22].
-2. **Mapa de Necessidades:** Experiência cartográfica interativa focada nos 185 municípios pernambucanos para identificar pressões e criticidade na rede[cite: 5, 16, 23].
-3. **Indicadores de Saúde:** Centro analítico estruturado com 24 indicadores organizados por blocos temáticos (*Epidemiológicos, Assistenciais e Estruturais*)[cite: 15, 24].
-4. **Priorização (Ciclo de Planejamento):** Painel de governança em formato de fluxo de trabalho (*Pendentes*, *Em Análise*, *Concluídas*) para registrar encaminhamentos e monitorar prioridades[cite: 14, 25].
+O **Saúde Estratégica** é uma plataforma web e painel digital integrado de inteligência territorial e apoio à decisão para a gestão do SUS. A solução transforma dados dispersos de múltiplas fontes públicas em informações acionáveis através de quatro eixos principais:
+1. **Visão Geral (Painel Estadual):** Painel executivo unificado com indicadores macro e alertas semanais para a vigilância.
+2. **Mapa de Necessidades:** Experiência cartográfica interativa focada nos 185 municípios pernambucanos para identificar pressões e criticidade na rede.
+3. **Indicadores de Saúde:** Centro analítico estruturado com 24 indicadores organizados por blocos temáticos (*Epidemiológicos, Assistenciais e Estruturais*).
+4. **Priorização (Ciclo de Planejamento):** Painel de governança em formato de fluxo de trabalho (*Pendentes*, *Em Análise*, *Concluídas*) para registrar encaminhamentos e monitorar prioridades.
 
 ---
 
@@ -150,16 +91,10 @@ A arquitetura do sistema adota um modelo em **três camadas** (cliente-servidor)
 
 ## Escopo do MVP
 
-- [x] **Visão Geral:** Dashboard executivo com cartões de indicadores (CNES, SIH, SIA, IBGE) e alertas de prioridade semanal[cite: 13, 22].
-- [x] **Mapa de Necessidades:** Mapa interativo de Pernambuco com filtros de Região de Saúde, Nível de Atenção e camadas temáticas[cite: 5, 16, 23].
-- [x] **Indicadores de Saúde:** Organização de blocos temáticos baseados nas bases do DATASUS com opções de comparação[cite: 15, 24].
-- [x] **Priorização:** Gestão de itens pendentes e em análise regional com foco no ciclo de planejamento estadual[cite: 14, 25].
-
----
-
-## Testes e resultados
-
-A solução foi validada através de simulações de cenários reais de gestão pública em saúde para o estado de Pernambuco, avaliando a fluidez da navegação cartográfica, a precisão na leitura dos indicadores consolidados e a eficiência no fluxo de registro de prioridades e encaminhamentos estratégicos.
+- [x] **Visão Geral:** Dashboard executivo com cartões de indicadores (CNES, SIH, SIA, IBGE) e alertas de prioridade semanal.
+- [x] **Mapa de Necessidades:** Mapa interativo de Pernambuco com filtros de Região de Saúde, Nível de Atenção e camadas temáticas.
+- [x] **Indicadores de Saúde:** Organização de blocos temáticos baseados nas bases do DATASUS com opções de comparação.
+- [x] **Priorização:** Gestão de itens pendentes e em análise regional com foco no ciclo de planejamento estadual.
 
 ---
 
@@ -173,8 +108,19 @@ A solução foi validada através de simulações de cenários reais de gestão 
 | Desenvolvimento | Como transformar a proposta em software? | MVP |
 | Testes | A solução realmente atende ao problema? | Evidências |
 | 2ª Avaliação | A solução funciona na prática? | MVP funcional + demonstração |
+
 ---
 
+## Como executar o projeto
+
+*Instruções a serem detalhadas na entrega da AV2.*
+
+## Versionamento e Avaliações
+
+- **1ª Avaliação (AV1):** Tag `v1.0-av1` (Projeto da solução e documentação em `docs/`).
+- **2ª Avaliação (AV2):** Tag `v2.0-av2` (MVP funcional implementado em `src/`).
+
+---
 
 ### Clonar projeto
 

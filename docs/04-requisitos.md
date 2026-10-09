@@ -57,10 +57,26 @@
 
 ## Critérios de aceite do MVP
 
-> Critérios de aceite definem **quando o MVP pode ser considerado pronto**. Eles serão usados nos testes da AV2 ([08-testes-e-validacao.md](08-testes-e-validacao.md)).
+> Critérios de aceite definem **quando o MVP pode ser considerado pronto**. Eles serão usados utilizados para validar as funcionalidades durante os testes da AV2 
 >
-> **Exemplo de formato (não é resposta):** "Dado que _[situação]_, quando _[ação do usuário]_, então _[resultado esperado]_."
+> Os testes e seus resultados deverão ser documentados em [`docs/08-testes-e-validacao.md`](08-testes-e-validacao.md).
 
-- [ ]
-- [ ]
-- [ ]
+- [ ] **CA09 — Atualização dos dados:** dado que exista registro da última atualização de uma base, quando o usuário consultar informações provenientes dela, então a data deverá ser apresentada.
+
+- [ ] **CA10 — Dados indisponíveis:** dado que uma consulta não possua dados suficientes, quando o usuário acessar a informação, então o sistema deverá indicar a ausência ou indisponibilidade dos dados, sem inventar resultados.
+
+- [ ] **CA11 — Dados simulados:** dado que o ambiente de teste utilize dados simulados, quando esses dados forem exibidos, então deverão estar claramente identificados como demonstrativos.
+
+- [ ] **CA12 — Priorização territorial:** dado que existam indicadores e critérios de priorização disponíveis, quando o usuário acessar a área de Priorização, então o sistema deverá apresentar os resultados da análise e os critérios utilizados.
+
+- [ ] **CA13 — Fundamentação da prioridade:** dado que um território receba uma classificação de prioridade, quando o usuário consultar essa classificação, então deverá ser possível identificar os indicadores ou critérios que contribuíram para o resultado.
+
+- [ ] **CA14 — Mensagens de erro:** dado que ocorra uma falha na consulta ou no carregamento de dados, quando o sistema identificar o problema, então deverá apresentar uma mensagem compreensível ao usuário.
+
+- [ ] **CA15 — Organização dos módulos:** dado que o usuário acesse a plataforma, quando navegar pelas funcionalidades previstas, então deverá conseguir identificar as quatro áreas planejadas: Visão Geral, Mapa de Necessidades, Indicadores de Saúde e Priorização.
+
+- [ ] **CA16 — Responsividade e acessibilidade:** dado que a plataforma seja avaliada em diferentes tamanhos de tela, quando forem executados os testes correspondentes, então os resultados deverão permitir verificar a responsividade e os critérios de acessibilidade definidos para o MVP.
+
+- [ ] **CA17 — Desempenho:** dado um ambiente de teste documentado e um conjunto representativo de consultas principais, quando forem realizados testes de desempenho, então os resultados deverão ser registrados para verificar a meta de resposta de até 3 segundos no percentil 95.
+
+- [ ] **CA18 — Registro da validação:** dado que as funcionalidades previstas para o MVP tenham sido desenvolvidas, quando a equipe executar os testes de validação, então os resultados, as falhas identificadas e as limitações conhecidas deverão ser registrados em `docs/08-testes-e-validacao.md`.

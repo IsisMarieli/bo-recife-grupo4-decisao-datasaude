@@ -20,7 +20,7 @@
 ## Links
 
 - Repositório GitHub:
-- Protótipo:
+- Protótipo: https://www.figma.com/design/mvCQcRJgrMgIa3rI7rUfR0/PROT%C3%93TIPO---SA%C3%9ADE-ESTRAT%C3%89GICA?node-id=0-1&t=RWHbsqlqP49gj8mi-1
 - Aplicação publicada:
 - Vídeo de demonstração, se solicitado:
 

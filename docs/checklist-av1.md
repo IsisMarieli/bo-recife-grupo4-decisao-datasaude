@@ -17,12 +17,12 @@
 
 ## Protótipo e arquitetura
 
-- [ ] Arquitetura inicial
-- [ ] Tecnologias justificadas
+- [x] Arquitetura inicial
+- [x] Tecnologias justificadas
 
 ## MVP e organização
 
-- [ ] Escopo do MVP definido, README preenchido
+- [x] Escopo do MVP definido, README preenchido
 
 ## Entrega
 

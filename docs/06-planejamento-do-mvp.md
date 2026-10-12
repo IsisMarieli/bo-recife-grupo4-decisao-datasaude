@@ -1,72 +1,37 @@
-# 07 — Planejamento do MVP
-
-> **Objetivo deste documento:** definir com precisão o que será entregue como MVP na AV2.
->
-> **Avaliação:** AV1 (é um dos documentos mais importantes da AV1)
-
----
-
-## O que é um MVP?
-
-> **MVP significa Produto Mínimo Viável.** Não é o sistema completo. É a **menor versão da solução capaz de demonstrar que a proposta central funciona**.
-
-Um bom MVP:
-
-- resolve **uma parte clara** do problema;
-- possui **pelo menos um fluxo principal funcionando de ponta a ponta**;
-- é **viável** de ser construído pela equipe no prazo da disciplina;
-- pode ser **testado** e **validado**.
-
----
-
 ## O que obrigatoriamente estará no MVP?
-
-_Liste as funcionalidades essenciais (ver [03-proposta-de-solucao.md](03-proposta-de-solucao.md))._
-
--
+- Painel de Visão Geral com cartões de macroindicadores e alertas da semana.
+- Mapa de Necessidades interativo com os municípios de Pernambuco e filtros regionais.
+- Bloco de Indicadores de Saúde organizados por fontes do DATASUS.
+- Painel de Priorização estruturado em formato de fluxo de trabalho (Pendentes, Em Análise, Concluídas).
 
 ## O que NÃO estará no MVP?
-
-_Liste o que fica para trabalhos futuros. Definir o que não será feito é tão importante quanto definir o que será feito._
-
--
-
-## Fluxo mínimo que deverá funcionar
-
-_Adapte o fluxo genérico abaixo para a solução da equipe._
-
-```text
-Entrada
-   ↓
-Processamento
-   ↓
-Persistência / serviço
-   ↓
-Resultado
-```
+- Sistema de login com autenticação de utilizadores e perfis personalizados por UBS (previsto para versões futuras).
+- Exportação automatizada de relatórios em PDF diretamente pelo backend.
+- Integração em tempo real com APIs de notificação via e-mail ou WhatsApp.
 
 ## Funcionalidades por avaliação
 
 | Funcionalidade | AV1 | AV2 | Prioridade |
 |---|---|---|---|
-| | Planejada | Implementar | Alta |
-| | | | |
-| | | | |
+| Concepção, arquitetura e prototipagem no Figma | Planejada | — | Alta |
+| Visão Geral (Dashboard Estadual) | Planejada | Implementar | Alta |
+| Mapa de Necessidades Interativo | Planejada | Implementar | Alta |
+| Indicadores de Saúde e Blocos DATASUS | Planejada | Implementar | Alta |
+| Gestão de Prioridades e Encaminhamentos | Planejada | Implementar | Média |
 
 ## Riscos
 
-_O que pode impedir a entrega do MVP? Como a equipe vai reduzir esses riscos?_
-
 | Risco | Plano de ação |
 |---|---|
-| | |
+| Complexidade na manipulação das malhas geográficas e do Leaflet | Utilizar GeoJSON padronizado do IBGE e componentes validados pela comunidade. |
+| Indisponibilidade temporária de bases públicas externas | Utilizar dados consolidados e pré-agregados no PostgreSQL através do pipeline de ingestão em Python/Pandas. |
 
 ## Cronograma
 
-_Situação: Não iniciado, Em andamento ou Concluído. Mantenha atualizado ao longo do semestre._
 
 | Etapa | Responsável | Situação |
 |---|---|---|
-| | | Não iniciado |
-| | | |
-| | | |
+| Pesquisa do BO e Definição do Problema | Grupo 4 | Concluído |
+| Prototipagem e Arquitetura (AV1) | Isis | Concluído |
+| Desenvolvimento do Frontend e Backend (AV2) | Isis | Em andamento |
+| Testes e Validação do MVP | Grupo 4 | Não iniciado |

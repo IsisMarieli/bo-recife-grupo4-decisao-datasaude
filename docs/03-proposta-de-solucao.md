@@ -38,12 +38,12 @@ _Situação atual: os dados estão espalhados em fontes, formatos e níveis de d
 
 _O que a solução melhora:_
 
-* Visão integrada: um único lugar reúne os indicadores de saúde e as características do território.
-* Agilidade: a atualização é automatizada, e o gestor encontra áreas prioritárias em minutos, sem cruzar planilhas.
-* Equidade: o índice de prioridade é transparente e ajustável, e ajuda a enxergar territórios que costumam ficar invisíveis.
-* Antecipação: alertas em séries temporais permitem identificar surtos mais cedo, respeitando a defasagem de cada fonte.
-* Segurança e conformidade: só trabalha com dados agregados, o que reduz o risco de LGPD.
-* Apoio, não substituição: a decisão continua com o gestor.
+* _Visão integrada: um único lugar reúne os indicadores de saúde e as características do território._
+* _Agilidade: a atualização é automatizada, e o gestor encontra áreas prioritárias em minutos, sem cruzar planilhas._
+* _Equidade: o índice de prioridade é transparente e ajustável, e ajuda a enxergar territórios que costumam ficar invisíveis._
+* _Antecipação: alertas em séries temporais permitem identificar surtos mais cedo, respeitando a defasagem de cada fonte._
+* _Segurança e conformidade: só trabalha com dados agregados, o que reduz o risco de LGPD._
+* _Apoio, não substituição: a decisão continua com o gestor._
 
 ## Fluxo principal
 
@@ -85,17 +85,37 @@ Passo a passo do usuário:
 _Funcionalidades sem as quais a solução não resolve o problema. Prioridade: Alta, Média ou Baixa._
 
 | ID | Funcionalidade | Problema que ajuda a resolver | Prioridade |
-|---|---|---|---|
-| F01 | | | Alta |
-| F02 | | | |
-| F03 | | | |
+| :--- | :--- | :--- | :--- |
+| F01 | Integração automática de fontes públicas (DATASUS, CNES, IBGE, dados abertos do Recife) com atualização periódica | Integração de diferentes fontes públicas de dados.  | Alta |
+| F02 | Organização dos dados por território (bairro, Distrito Sanitário, RPA), com padronização de nomes e malhas | Organização dos dados por território.  | Alta |
+| F03 | Mapa coroplético com filtro por indicador e período | Visualização em mapas e dashboards. | Alta |
+| F04 | Ranking e comparação entre territórios | Identificação de regiões com maior concentração de problemas. | Alta |
+| F05 | Série temporal por território, com alerta ao ultrapassar limiar (ex.: arboviroses) | Atraso na identificação de surtos. | Alta |
+| F06 | Índice de prioridade composto, com pesos visíveis e ajustáveis | Apoio à priorização de ações e recursos, sem decidir pelo gestor. | Alta |
+| F07 | Cruzamento de indicadores de saúde com características do território (renda, densidade, saneamento) | Cruzamento de indicadores com características territoriais.  | Média |
+| F08 | Controle de acesso por perfil (gestor, vigilância, consulta) | Acesso restrito a gestores e profissionais autorizados. | Média |
+| F09 | Exportação de relatórios (PDF/CSV) | Uso em reuniões de planejamento, no lugar de planilhas isoladas. | Média |
+| F10 | Metadados e avisos de qualidade (fonte, data de atualização, alerta de números pequenos) | Decisões com informação pouco contextualizada. | Média |
 
 ## Funcionalidades futuras
 
-_Funcionalidades desejáveis, mas que não são essenciais neste momento._
+* _Expansão para os 185 municípios de Pernambuco._
+* _Alertas automáticos por e-mail ou mensagem._
+* _Comparação entre períodos e análise de tendência._
+* _Novos indicadores (saúde da mulher e da criança, doenças crônicas, saúde mental)._
+* _Integração com dados agregados do e-SUS APS e do sistema de regulação._
+* _Simulador de cenários de alocação de equipes e recursos._
+* _Painel público simplificado para controle social e conselhos de saúde._
+* _API aberta para outros sistemas e pesquisadores._
+* _Versão otimizada para celular._
 
--
 
 ## Diferencial
 
-_O que diferencia esta proposta das soluções existentes pesquisadas?_
+_Ferramentas como o TabNet/DATASUS, os painéis do Ministério da Saúde e as planilhas locais mostram dados isolados, em tabelas por município, sem integração entre fontes e sem foco no território urbano. O diferencial desta proposta é:_
+
+* _Integração de fontes distintas em uma única base territorial, com nível de detalhe de bairro e Distrito Sanitário._
+* _Mapa de decisão, não só de consulta: índice de prioridade transparente e ajustável._
+* _Alertas territoriais sobre surtos, em vez de relatórios estáticos._
+* _Privacidade desde o desenho: só dados agregados, sem dados pessoais._
+* _Desenhada para o gestor, com exportação pronta para o planejamento._

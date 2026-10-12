@@ -8,6 +8,13 @@
 
 - Turma:
 - Grupo:
+* Emilly Dantas da Silva Bento - 01645290
+* Eychila Meirelle da Silva - 01567091
+* Isis Marieli da Silva Moura  - 01482889
+* Luis Fernando - 01747654
+* Maria Clara - 01747760
+* Maria Eduarda  - 01748239
+
 - Nome do projeto:
 - BO escolhido:
 

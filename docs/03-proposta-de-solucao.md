@@ -16,7 +16,7 @@ _O SaúdeTerritório Recife é uma plataforma web que integra dados públicos de
 
 ## Público-alvo
 
-* _População dos territórios do Recife, em especial a das áreas com maior necessidade de saúde, que é beneficiada indiretamente por ações mais bem direcionadas._
+* _População dos territórios do Pernambuco, em especial a das áreas com maior necessidade de saúde, que é beneficiada indiretamente por ações mais bem direcionadas._
 * _Secretaria de Saúde do Recife, que ganha eficiência no planejamento e na alocação de recursos._
 * _Conselhos de saúde e instâncias de controle social, que passam a ter dados para acompanhar e cobrar ações._
 
@@ -86,28 +86,21 @@ _Funcionalidades sem as quais a solução não resolve o problema. Prioridade: A
 
 | ID | Funcionalidade | Problema que ajuda a resolver | Prioridade |
 | :--- | :--- | :--- | :--- |
-| F01 | Integração automática de fontes públicas (DATASUS, CNES, IBGE, dados abertos do Recife) com atualização periódica | Integração de diferentes fontes públicas de dados.  | Alta |
-| F02 | Organização dos dados por território (bairro, Distrito Sanitário, RPA), com padronização de nomes e malhas | Organização dos dados por território.  | Alta |
-| F03 | Mapa coroplético com filtro por indicador e período | Visualização em mapas e dashboards. | Alta |
-| F04 | Ranking e comparação entre territórios | Identificação de regiões com maior concentração de problemas. | Alta |
-| F05 | Série temporal por território, com alerta ao ultrapassar limiar (ex.: arboviroses) | Atraso na identificação de surtos. | Alta |
-| F06 | Índice de prioridade composto, com pesos visíveis e ajustáveis | Apoio à priorização de ações e recursos, sem decidir pelo gestor. | Alta |
-| F07 | Cruzamento de indicadores de saúde com características do território (renda, densidade, saneamento) | Cruzamento de indicadores com características territoriais.  | Média |
-| F08 | Controle de acesso por perfil (gestor, vigilância, consulta) | Acesso restrito a gestores e profissionais autorizados. | Média |
-| F09 | Exportação de relatórios (PDF/CSV) | Uso em reuniões de planejamento, no lugar de planilhas isoladas. | Média |
-| F10 | Metadados e avisos de qualidade (fonte, data de atualização, alerta de números pequenos) | Decisões com informação pouco contextualizada. | Média |
+| F01 | Pipeline de ingestão e consolidação de dados do DATASUS no PostgreSQL | Integração de fontes públicas fragmentadas | Alta |
+| F02 | Painel de Visão Geral: cartões de macroindicadores e alertas da semana | Atraso na identificação de surtos; visão rápida do estado | Alta |
+| F03 | Mapa de Necessidades interativo (municípios de PE, GeoJSON do IBGE, filtros regionais) | Visualização territorial e identificação de regiões críticas | Alta |
+| F04 | Bloco de Indicadores de Saúde organizados por fonte do DATASUS | Cruzamento e organização de indicadores | Alta |
+| F05 | Painel de Priorização em fluxo (Pendentes, Em Análise, Concluídas) | Apoio à priorização de ações e encaminhamentos | Média |
 
 ## Funcionalidades futuras
 
-* _Expansão para os 185 municípios de Pernambuco._
-* _Alertas automáticos por e-mail ou mensagem._
-* _Comparação entre períodos e análise de tendência._
-* _Novos indicadores (saúde da mulher e da criança, doenças crônicas, saúde mental)._
-* _Integração com dados agregados do e-SUS APS e do sistema de regulação._
-* _Simulador de cenários de alocação de equipes e recursos._
-* _Painel público simplificado para controle social e conselhos de saúde._
-* _API aberta para outros sistemas e pesquisadores._
-* _Versão otimizada para celular._
+* _Login com autenticação e perfis personalizados por UBS_
+* _Exportação automatizada de relatórios em PDF pelo backend_
+* _Notificações em tempo real por e-mail e WhatsApp_
+* _Índice de prioridade composto com pesos ajustáveis_
+* _Série temporal com alertas por limiar_
+* _Cruzamento com dados socioeconômicos (renda, saneamento)_
+* _Aprofundamento para bairros e Distritos Sanitários do Recife_
 
 
 ## Diferencial

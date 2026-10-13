@@ -6,7 +6,7 @@
 
 ## Identificação
 
-- Turma:
+- Turma: 5° NA - EMBARQUE
 - Grupo:
 * Emilly Dantas da Silva Bento - 01645290
 * Eychila Meirelle da Silva - 01567091
@@ -15,18 +15,23 @@
 * Maria Clara - 01747760
 * Maria Eduarda  - 01748239
 
-- Nome do projeto:
-- BO escolhido:
+- Nome do projeto: Saúde Estratégica
+- BO escolhido: Limitação de Acesso a Dados Estratégicos do Território para Tomadores de Decisão em Saúde
 
 ## Integrantes
 
 | Nome | GitHub |
-|---|---|
-| | |
+| :--- | :--- |
+| Isis Marieli da Silva Moura | IsisMarieli |
+| Luis Fernando | fernandoferard |
+| Eychila Meirelle | EychilaSilva |
+| Emilly Dantas | Emilly-stargirl |
+| Maria Clara | mariactbuonafina |
+| Maria Eduarda | MariaEduardaTBuonafina |
 
 ## Links
 
-- Repositório GitHub:
+- Repositório GitHub: https://github.com/IsisMarieli/bo-recife-grupo4-decisao-datasaude.git
 - Protótipo: https://www.figma.com/design/mvCQcRJgrMgIa3rI7rUfR0/PROT%C3%93TIPO---SA%C3%9ADE-ESTRAT%C3%89GICA?node-id=0-1&t=RWHbsqlqP49gj8mi-1
 - Aplicação publicada:
 - Vídeo de demonstração, se solicitado:

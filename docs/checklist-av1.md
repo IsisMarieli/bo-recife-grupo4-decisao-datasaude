@@ -8,12 +8,12 @@
 - [x] Link do BO informado.
 - [x] Problema descrito, Público afetado identificado.
 - [x] Causas analisadas, Consequências analisadas.
-- [ ] Soluções existentes pesquisadas.
+- [x] Soluções existentes pesquisadas.
 
 ## Proposta e requisitos
 
-- [ ] Proposta da equipe documentada
-- [ ] Funcionalidades definidas
+- [x] Proposta da equipe documentada
+- [x] Funcionalidades definidas
 
 ## Protótipo e arquitetura
 
@@ -26,7 +26,7 @@
 
 ## Entrega
 
-- [ ] `ENTREGA.md` preenchido
+- [x] `ENTREGA.md` preenchido
 
 ## Documentos relacionados
 

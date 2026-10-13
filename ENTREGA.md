@@ -6,15 +6,14 @@
 
 ## Identificação
 
-- Turma: 5° NA - EMBARQUE
-- Grupo:
-* Emilly Dantas da Silva Bento - 01645290
-* Eychila Meirelle da Silva - 01567091
-* Isis Marieli da Silva Moura  - 01482889
-* Luis Fernando - 01747654
-* Maria Clara - 01747760
-* Maria Eduarda  - 01748239
-
+- Turma: 5NA — Embarque Digital / Noite
+- Grupo: 4
+  * Emilly Dantas da Silva Bento - 01645290
+  * Eychila Meirelle da Silva - 01567091
+  * Isis Marieli da Silva Moura - 01482889
+  * Luis Fernando Andrade da Silva - 01747654
+  * Maria Clara Trevizane Buonafina - 01747760
+  * Maria Eduarda T. Buonafina - 01748239
 - Nome do projeto: Saúde Estratégica
 - BO escolhido: Limitação de Acesso a Dados Estratégicos do Território para Tomadores de Decisão em Saúde
 
@@ -22,24 +21,24 @@
 
 | Nome | GitHub |
 | :--- | :--- |
-| Isis Marieli da Silva Moura | IsisMarieli |
-| Luis Fernando | fernandoferard |
-| Eychila Meirelle | EychilaSilva |
-| Emilly Dantas | Emilly-stargirl |
-| Maria Clara | mariactbuonafina |
-| Maria Eduarda | MariaEduardaTBuonafina |
+| Isis Marieli da Silva Moura | [@IsisMarieli](https://github.com/IsisMarieli) |
+| Luis Fernando Andrade da Silva | [@fernandoferard](https://github.com/fernandoferard) |
+| Eychila Meirelle da Silva | [@EychilaSilva](https://github.com/EychilaSilva) |
+| Emilly Dantas da Silva Bento | [@Emilly-stargirl](https://github.com/Emilly-stargirl) |
+| Maria Clara Trevizane Buonafina | [@mariactbuonafina](https://github.com/mariactbuonafina) |
+| Maria Eduarda T. Buonafina | [@MariaEduardaTBuonafina](https://github.com/MariaEduardaTBuonafina) |
 
 ## Links
 
-- Repositório GitHub: https://github.com/IsisMarieli/bo-recife-grupo4-decisao-datasaude.git
+- Repositório GitHub: https://github.com/IsisMarieli/bo-recife-grupo4-decisao-datasaude
 - Protótipo: https://www.figma.com/design/mvCQcRJgrMgIa3rI7rUfR0/PROT%C3%93TIPO---SA%C3%9ADE-ESTRAT%C3%89GICA?node-id=0-1&t=RWHbsqlqP49gj8mi-1
-- Aplicação publicada:
-- Vídeo de demonstração, se solicitado:
+- Aplicação publicada: não se aplica na AV1 (MVP será entregue na AV2)
+- Vídeo de demonstração, se solicitado: não solicitado até o momento
 
 ## Entrega AV1
 
-- Tag/Release:
-- Data:
+- Tag/Release: v1.0-av1
+- Data: 12/10/2026
 
 > Tag esperada: `v1.0-av1`
 

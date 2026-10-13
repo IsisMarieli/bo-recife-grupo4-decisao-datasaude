@@ -3,8 +3,6 @@
 > **Objetivo deste documento:** descrever com clareza o problema real escolhido no Banco de Oportunidades (BO) e delimitar qual parte dele será tratada pela equipe.
 >
 > **Avaliação:** AV1
->
-> **Como preencher:** substitua as orientações em itálico pelo texto da equipe. Seja específico: evite frases genéricas como "o sistema vai melhorar a vida das pessoas".
 
 ---
 
@@ -29,7 +27,7 @@ Desenvolver uma solução de integração, organização e visualização de dad
 
 **Parte do problema que será tratada:**
 - integração de diferentes fontes públicas de dados;
-- organização dos dados por território;
+- organização dos dados por território (município no MVP, com Recife como referência);
 - visualização das informações em mapas e dashboards;
 - cruzamento de indicadores de saúde com características territoriais;
 - identificação de regiões que apresentam maior concentração de determinados problemas ou necessidades;
@@ -65,7 +63,7 @@ O problema ocorre no **município do Recife**, principalmente nos processos de *
 
 A dificuldade está relacionada ao acesso e à integração de informações produzidas por diferentes fontes e serviços, que precisam ser analisadas de forma territorializada para permitir uma melhor compreensão das necessidades da população.
 
-O projeto considera como recorte territorial os diferentes níveis disponíveis nas bases de dados, como **distritos sanitários, bairros e áreas de abrangência dos serviços de saúde**, conforme a disponibilidade e qualidade dos dados utilizados.
+Nesta primeira versão (MVP), o recorte territorial é o **município**: o sistema integra dados públicos do DATASUS e do IBGE por município de Pernambuco, com o **Recife como território de referência**. O aprofundamento para **distritos sanitários, bairros e áreas de abrangência dos serviços de saúde** está previsto para versões futuras, conforme a disponibilidade e a qualidade dos dados.
 
 ## Importância
 

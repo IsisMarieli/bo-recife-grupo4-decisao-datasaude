@@ -10,15 +10,17 @@
 
 ## Nome da solução
 
+**Saúde Estratégica**
+
 ## Resumo
 
 _O SaúdeTerritório Recife é uma plataforma web que integra dados públicos de saúde, sempre agregados e sem dados pessoais, e os organiza por território (bairro, Distrito Sanitário e RPA). Os dados são exibidos em mapas, rankings e séries temporais. Destina-se a gestores e profissionais de saúde da rede municipal do Recife. Resolve a dificuldade de acessar, cruzar e interpretar informações fragmentadas, apoiando a priorização de ações e recursos com base em evidências territoriais._
 
 ## Público-alvo
 
-* _População dos territórios do Pernambuco, em especial a das áreas com maior necessidade de saúde, que é beneficiada indiretamente por ações mais bem direcionadas._
-* _Secretaria de Saúde do Recife, que ganha eficiência no planejamento e na alocação de recursos._
-* _Conselhos de saúde e instâncias de controle social, que passam a ter dados para acompanhar e cobrar ações._
+* População do Recife e de Pernambuco, em especial a das áreas com maior necessidade de saúde, que é beneficiada indiretamente por ações mais bem direcionadas.
+* Secretaria de Saúde do Recife, que ganha eficiência no planejamento e na alocação de recursos.
+* Conselhos de saúde e instâncias de controle social, que passam a ter dados para acompanhar e cobrar ações.
 
 ## Usuários
 

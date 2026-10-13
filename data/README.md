@@ -44,6 +44,9 @@ Esta pasta reúne os **dados utilizados pelo projeto** e, principalmente, a **do
 - Portal de Dados Abertos do Recife: <http://dados.recife.pe.gov.br/>
 - Portal Brasileiro de Dados Abertos: <https://dados.gov.br/>
 - IBGE: <https://www.ibge.gov.br/>
+- DATASUS: <https://datasus.saude.gov.br/informacoes-de-saude-tabnet/>
+- IBGE RECIFE: <https://cidades.ibge.gov.br/brasil/pe/recife/panorama>
+- Diatritos Sanitários do Recife: <https://dados.recife.pe.gov.br/dataset/distritos-sanitarios>
 
 ## Dados fictícios
 

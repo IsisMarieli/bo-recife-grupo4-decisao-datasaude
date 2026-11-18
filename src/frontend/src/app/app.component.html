@@ -1,0 +1,55 @@
+<main class="container">
+  <header>
+    <h1>Saúde Estratégica</h1>
+    <p class="subtitulo">Mapa de Necessidades — visão por município (escopo inicial da AV2)</p>
+    <p class="aviso">
+      Os valores de indicadores e a classificação de prioridade exibidos nesta
+      versão são demonstrativos, gerados para testar o fluxo ponta a ponta
+      antes da integração real com o DATASUS.
+    </p>
+  </header>
+
+  @if (carregando) {
+    <p>Carregando municípios...</p>
+  }
+
+  @if (erro) {
+    <p class="erro">
+      Não foi possível carregar os municípios. Verifique se a API está em
+      execução em http://localhost:8000.
+    </p>
+  }
+
+  @if (!carregando && !erro) {
+    <table>
+      <thead>
+        <tr>
+          <th>Município</th>
+          <th>Região de Saúde</th>
+          <th>População</th>
+          <th>Prioridade</th>
+          <th>Pontuação</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (municipio of municipios; track municipio.id) {
+          <tr>
+            <td>{{ municipio.nome }}</td>
+            <td>{{ municipio.regiao_saude?.nome ?? '—' }}</td>
+            <td>{{ municipio.populacao ?? '—' }}</td>
+            <td>
+              @if (municipio.prioridade) {
+                <span class="selo" [class]="'selo-' + municipio.prioridade.nivel">
+                  {{ municipio.prioridade.nivel }}
+                </span>
+              } @else {
+                <span>sem dados</span>
+              }
+            </td>
+            <td>{{ municipio.prioridade?.pontuacao ?? '—' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</main>

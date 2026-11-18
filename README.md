@@ -114,3 +114,55 @@ git clone https://github.com/IsisMarieli/bo-recife-grupo4-decisao-datasaude.git
 cd bo-recife-grupo4-decisao-datasaude
 
 code .
+```
+
+---
+
+## Como executar o projeto
+
+> Escopo inicial da AV2: backend (API + banco) e um fluxo mínimo do frontend
+> (lista de municípios com a classificação de prioridade), com dados
+> demonstrativos. Mapa interativo, demais painéis e a integração real com o
+> DATASUS ainda estão em desenvolvimento — ver [src/README.md](src/README.md).
+
+### Opção 1 — Docker Compose (recomendado: sobe tudo de uma vez)
+
+Requer Docker instalado. Em algumas instalações o comando é `docker compose`
+(com espaço); em outras, `docker-compose` (com hífen, plugin legado).
+
+```bash
+docker compose up --build
+```
+
+Um único comando sobe os três serviços juntos:
+
+- **PostgreSQL**, já populado com dados de referência/demonstrativos (`src/backend/app/seed.py`);
+- **API** em `http://localhost:8000` (documentação interativa em `http://localhost:8000/docs`);
+- **Frontend Angular** em `http://localhost:4200`, com hot reload (o código de `src/frontend` é montado dentro do container).
+
+Para derrubar tudo: `docker compose down` (ou `docker-compose down`).
+
+### Opção 2 — Rodar cada parte manualmente (sem Docker)
+
+Só o banco de dados exige Docker (ou um PostgreSQL local já instalado); backend e frontend rodam direto na máquina. Use dois terminais, um para cada parte.
+
+**Terminal 1 — banco + backend:**
+
+```bash
+docker run --name saude-estrategica-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=saude_estrategica -p 5432:5432 -d postgres:16
+
+cd src/backend
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env   # ajuste a DATABASE_URL se necessário
+python -m app.seed     # cria as tabelas e popula os dados demonstrativos
+uvicorn app.main:app --reload
+```
+
+**Terminal 2 — frontend** (requer Node.js 20+ e a API já rodando em `http://localhost:8000`):
+
+```bash
+cd src/frontend
+npm install
+npm start   # ng serve — abre em http://localhost:4200
+```

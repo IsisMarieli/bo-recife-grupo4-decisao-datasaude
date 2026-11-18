@@ -46,6 +46,35 @@ src/
 - **nunca** versione senhas, tokens, chaves de API ou arquivos `.env`;
 - não versione pastas geradas automaticamente (`node_modules/`, `venv/`, `build/` etc.) — elas já estão no `.gitignore`.
 
-## Descrição do código (preencher na AV2)
+## Descrição do código
 
-_Explique brevemente a organização das pastas e arquivos do código da equipe._
+Estrutura adotada (ver [05-arquitetura-e-tecnologias.md](../docs/05-arquitetura-e-tecnologias.md)):
+
+```text
+src/
+├── backend/        # API REST (FastAPI + SQLAlchemy)
+│   └── app/
+│       ├── main.py       # endpoints
+│       ├── models.py     # entidades do banco (município, indicador, alerta...)
+│       ├── schemas.py     # schemas de resposta (Pydantic)
+│       ├── priority.py    # cálculo do índice de prioridade (funções puras)
+│       └── seed.py        # popula o banco com dados de referência/demonstrativos
+└── frontend/       # Aplicação Angular (standalone components)
+    └── src/app/
+        ├── app.component.*       # tela inicial: tabela de municípios e prioridade
+        ├── municipio.service.ts  # chamadas HTTP à API
+        └── models/municipio.ts   # tipos TypeScript equivalentes aos schemas da API
+```
+
+**Status atual (escopo inicial da AV2):** a API expõe os endpoints de
+`/municipios`, `/alertas`, `/comparar` e `/regiao-padrao-demo` descritos em
+`docs/05`, com dados de 7 municípios de Pernambuco inseridos pelo script de
+seed — ver [data/README.md](../data/README.md) para a origem e o caráter
+demonstrativo desses dados. O frontend ainda cobre apenas um fluxo mínimo
+(lista de municípios), funcionando ponta a ponta com a API. O mapa
+interativo (Leaflet), os blocos de indicadores com gráficos, o painel de
+priorização em fluxo de trabalho e a ingestão real das bases do DATASUS
+(PySUS) ainda não foram implementados.
+
+Instruções de instalação e execução estão no
+[README principal](../README.md#como-executar-o-projeto).

@@ -25,17 +25,31 @@ Esta pasta reúne os **dados utilizados pelo projeto** e, principalmente, a **do
 
 > Copie o bloco abaixo para cada base de dados utilizada pela equipe.
 
-### Base 1
+### Base 1 — Catálogo de municípios (referência)
 
-- **Nome da base:**
-- **Origem:**
-- **URL:**
-- **Responsável (órgão/instituição):**
-- **Data de acesso:**
-- **Descrição:**
-- **Instrução de download:**
-- **Licença, se conhecida:**
-- **Arquivo(s) nesta pasta (se versionado):**
+- **Nome da base:** Nome, código IBGE e população aproximada de 7 municípios de Pernambuco, usados no escopo inicial do MVP.
+- **Origem:** Valores de referência aproximados, digitados manualmente a partir de conhecimento geral sobre os municípios — **ainda não vêm de uma consulta real à API do IBGE**.
+- **URL:** <https://cidades.ibge.gov.br/brasil/pe/recife/panorama> (API de Localidades do IBGE, a integrar em versão futura)
+- **Responsável (órgão/instituição):** IBGE (fonte de referência; integração ainda não implementada)
+- **Data de acesso:** não se aplica (dados ainda não coletados via API)
+- **Descrição:** usada para popular as tabelas `municipios` e `regioes_saude` via `src/backend/app/seed.py`.
+- **Instrução de download:** não se aplica nesta etapa — ver `MUNICIPIOS` em `src/backend/app/seed.py`.
+- **Licença, se conhecida:** dados públicos do IBGE.
+- **Arquivo(s) nesta pasta (se versionado):** nenhum; os valores estão no código do seed, não em arquivo de dados.
+- **⚠️ Pendência:** validar/substituir esses valores pela consulta real à API do IBGE antes da entrega final da AV2.
+
+### Base 2 — Indicadores de saúde (dados demonstrativos)
+
+- **Nome da base:** Séries mensais fictícias para três indicadores: "Taxa de incidência de arboviroses" (SINAN), "Taxa de ocupação de leitos" (SIH/SUS) e "Cobertura de Atenção Básica" (e-SUS APS).
+- **Origem:** **Dados gerados artificialmente** por `src/backend/app/seed.py` (gerador aleatório com semente fixa `random.Random(42)`, dentro de faixas plausíveis por indicador), e não extraídos do DATASUS.
+- **URL:** não se aplica (dados sintéticos).
+- **Responsável (órgão/instituição):** não se aplica.
+- **Data de acesso:** não se aplica.
+- **Descrição:** cada valor é gravado com a flag `demonstrativo = true` no banco e devolvido assim pela API (campo `demonstrativo` em `ValorIndicadorOut`), conforme RF18/CA11 em [04-requisitos.md](../docs/04-requisitos.md) — a identificação de dados simulados é obrigatória.
+- **Instrução de download:** não se aplica — gerado ao rodar `python -m app.seed`.
+- **Licença, se conhecida:** não se aplica.
+- **Arquivo(s) nesta pasta (se versionado):** nenhum.
+- **⚠️ Pendência:** substituir pela ingestão real das bases do DATASUS (pipeline com PySUS, planejado em [05-arquitetura-e-tecnologias.md](../docs/05-arquitetura-e-tecnologias.md)) antes da entrega final da AV2.
 
 ---
 

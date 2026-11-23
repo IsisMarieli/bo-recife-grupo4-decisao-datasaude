@@ -1,0 +1,58 @@
+<section class="pagina">
+  <h2>Visão Geral</h2>
+  <p class="subtitulo">Indicadores macro e alertas da semana para a vigilância territorial.</p>
+
+  @if (carregando) {
+    <p>Carregando painel...</p>
+  }
+
+  @if (erro) {
+    <p class="erro">
+      Não foi possível carregar o painel. Verifique se a API está em execução.
+    </p>
+  }
+
+  @if (!carregando && !erro) {
+    <div class="cartoes">
+      <article class="cartao-macro">
+        <span class="valor">{{ totalMunicipios }}</span>
+        <span class="rotulo">Municípios monitorados</span>
+      </article>
+      <article class="cartao-macro alta">
+        <span class="valor">{{ totalPrioridadeAlta }}</span>
+        <span class="rotulo">Com prioridade alta</span>
+      </article>
+      <article class="cartao-macro media">
+        <span class="valor">{{ totalPrioridadeMedia }}</span>
+        <span class="rotulo">Com prioridade média</span>
+      </article>
+      <article class="cartao-macro">
+        <span class="valor">{{ alertas.length }}</span>
+        <span class="rotulo">Alertas ativos</span>
+      </article>
+    </div>
+
+    <h3>Alertas da semana</h3>
+
+    @if (alertas.length === 0) {
+      <p>Nenhum alerta ativo no momento.</p>
+    } @else {
+      <ul class="lista-alertas">
+        @for (alerta of alertas; track alerta.id) {
+          <li>
+            <span class="gravidade" [class]="'gravidade-' + alerta.gravidade">{{ alerta.gravidade }}</span>
+            <div class="conteudo">
+              <strong>{{ nomeMunicipio(alerta.municipio_id) }}</strong>
+              <p>{{ alerta.descricao }}</p>
+              <span class="data">{{ alerta.data }}</span>
+            </div>
+          </li>
+        }
+      </ul>
+    }
+
+    <p class="acao">
+      <a routerLink="/mapa-de-necessidades">Ver todos os municípios no Mapa de Necessidades →</a>
+    </p>
+  }
+</section>

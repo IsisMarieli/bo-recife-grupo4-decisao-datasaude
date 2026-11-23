@@ -59,13 +59,19 @@ src/
 │       ├── schemas.py     # schemas de resposta (Pydantic)
 │       ├── priority.py    # cálculo do índice de prioridade (funções puras)
 │       └── seed.py        # popula o banco com dados de referência/demonstrativos
-└── frontend/       # Aplicação Angular (standalone components)
+└── frontend/       # Aplicação Angular (standalone components) com roteamento
     └── src/app/
-        ├── app.component.*            # tela inicial: tabela de municípios e prioridade
-        ├── indicadores.component.*    # painel de indicadores do município selecionado (gráficos Chart.js)
-        ├── municipio.service.ts       # chamadas HTTP à API (municípios)
-        ├── indicador.service.ts       # chamadas HTTP à API (indicadores)
-        └── models/                    # tipos TypeScript equivalentes aos schemas da API
+        ├── app.component.*                  # casca: cabeçalho, menu das 4 telas e <router-outlet>
+        ├── app.routes.ts                    # rotas: visao-geral, mapa-de-necessidades, indicadores(/:id), priorizacao
+        ├── visao-geral.component.*          # tela 1 — cartões de macroindicadores + alertas da semana
+        ├── mapa-de-necessidades.component.* # tela 2 — lista de municípios e prioridade (mapa Leaflet: pendente)
+        ├── indicadores-page.component.*     # tela 3 — seletor de município + painel de indicadores
+        ├── indicadores.component.*          # painel de indicadores (gráficos Chart.js), usado pela tela 3
+        ├── priorizacao.component.*          # tela 4 — placeholder (ainda não implementada)
+        ├── municipio.service.ts             # chamadas HTTP à API (municípios)
+        ├── indicador.service.ts             # chamadas HTTP à API (indicadores)
+        ├── alerta.service.ts                # chamadas HTTP à API (alertas)
+        └── models/                          # tipos TypeScript equivalentes aos schemas da API
 ```
 
 **Status atual (escopo inicial da AV2):** a API expõe os endpoints de
@@ -73,13 +79,25 @@ src/
 `/regiao-padrao-demo` descritos em `docs/05`, com dados de 7 municípios de
 Pernambuco inseridos pelo script de seed — ver
 [data/README.md](../data/README.md) para a origem e o caráter demonstrativo
-desses dados. O frontend cobre dois fluxos funcionando ponta a ponta com a
-API: a lista de municípios com a classificação de prioridade, e — ao
-clicar em "Ver indicadores" num município — o painel de Indicadores de
-Saúde, com um gráfico de tendência (Chart.js) por indicador, fonte, data
-de atualização e aviso de dado demonstrativo. O mapa interativo (Leaflet),
-o painel de priorização em fluxo de trabalho e a ingestão real das bases
-do DATASUS (PySUS) ainda não foram implementados.
+desses dados.
+
+O frontend já está organizado nas quatro áreas planejadas (RF19), com
+navegação entre elas pelo menu superior:
+
+1. **Visão Geral** (tela inicial) — cartões de macroindicadores (municípios
+   monitorados, prioridade alta/média, alertas ativos) e a lista de
+   alertas da semana (`GET /alertas`).
+2. **Mapa de Necessidades** — lista de municípios com a classificação de
+   prioridade; o mapa cartográfico interativo (Leaflet) ainda não foi
+   implementado, a tela já avisa isso ao usuário.
+3. **Indicadores de Saúde** — seletor de município (ou acesso direto vindo
+   do Mapa de Necessidades) e o painel com gráfico de tendência (Chart.js)
+   por indicador, fonte, data de atualização e aviso de dado demonstrativo.
+4. **Priorização** — tela de navegação já existe, mas o conteúdo (fluxo
+   Pendentes/Em Análise/Concluídas) ainda não foi implementado.
+
+A ingestão real das bases do DATASUS (PySUS), que hoje é substituída pelo
+script de seed com dados demonstrativos, também ainda não foi implementada.
 
 Instruções de instalação e execução estão no
 [README principal](../README.md#como-executar-o-projeto).

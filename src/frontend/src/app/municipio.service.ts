@@ -12,4 +12,8 @@ export class MunicipioService {
   listar(): Observable<Municipio[]> {
     return this.http.get<Municipio[]>(`${API_BASE_URL}/municipios`);
   }
+
+  obter(id: number): Observable<Municipio> {
+    return this.http.get<Municipio>(`${API_BASE_URL}/municipios/${id}`);
+  }
 }

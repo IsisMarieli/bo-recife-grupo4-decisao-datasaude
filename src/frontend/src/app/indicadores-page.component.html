@@ -1,0 +1,37 @@
+<section class="pagina">
+  <h2>Indicadores de Saúde</h2>
+  <p class="subtitulo">Indicadores organizados por fonte do DATASUS, com série histórica por período.</p>
+
+  @if (carregando) {
+    <p>Carregando municípios...</p>
+  }
+
+  @if (erro) {
+    <p class="erro">
+      Não foi possível carregar os municípios. Verifique se a API está em execução.
+    </p>
+  }
+
+  @if (!carregando && !erro) {
+    <label class="seletor">
+      Município:
+      <select (change)="selecionar($any($event.target).value)">
+        <option value="" [selected]="!municipioSelecionado">Selecione um município...</option>
+        @for (municipio of municipios; track municipio.id) {
+          <option [value]="municipio.id" [selected]="municipioSelecionado?.id === municipio.id">
+            {{ municipio.nome }}
+          </option>
+        }
+      </select>
+    </label>
+
+    @if (municipioSelecionado) {
+      <app-indicadores
+        [municipioId]="municipioSelecionado.id"
+        [municipioNome]="municipioSelecionado.nome"
+      />
+    } @else {
+      <p>Selecione um município para consultar seus indicadores de saúde.</p>
+    }
+  }
+</section>

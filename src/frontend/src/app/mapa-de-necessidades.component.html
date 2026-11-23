@@ -1,0 +1,58 @@
+<section class="pagina">
+  <h2>Mapa de Necessidades</h2>
+  <p class="subtitulo">
+    Município de referência: Recife, com os demais municípios de Pernambuco para comparação.
+  </p>
+  <p class="aviso">
+    O mapa cartográfico interativo (Leaflet) ainda está em desenvolvimento. Por
+    enquanto, esta tela lista os municípios com a classificação de
+    prioridade — os dados de indicadores exibidos são demonstrativos.
+  </p>
+
+  @if (carregando) {
+    <p>Carregando municípios...</p>
+  }
+
+  @if (erro) {
+    <p class="erro">
+      Não foi possível carregar os municípios. Verifique se a API está em execução.
+    </p>
+  }
+
+  @if (!carregando && !erro) {
+    <table>
+      <thead>
+        <tr>
+          <th>Município</th>
+          <th>Região de Saúde</th>
+          <th>População</th>
+          <th>Prioridade</th>
+          <th>Pontuação</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (municipio of municipios; track municipio.id) {
+          <tr>
+            <td>{{ municipio.nome }}</td>
+            <td>{{ municipio.regiao_saude?.nome ?? '—' }}</td>
+            <td>{{ municipio.populacao ?? '—' }}</td>
+            <td>
+              @if (municipio.prioridade) {
+                <span class="selo" [class]="'selo-' + municipio.prioridade.nivel">
+                  {{ municipio.prioridade.nivel }}
+                </span>
+              } @else {
+                <span>sem dados</span>
+              }
+            </td>
+            <td>{{ municipio.prioridade?.pontuacao ?? '—' }}</td>
+            <td>
+              <a [routerLink]="['/indicadores', municipio.id]">Ver indicadores</a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

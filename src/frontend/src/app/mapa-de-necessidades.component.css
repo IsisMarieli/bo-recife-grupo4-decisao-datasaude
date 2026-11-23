@@ -1,0 +1,63 @@
+.pagina {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.subtitulo {
+  color: #444;
+  margin-top: 0;
+}
+
+.aviso {
+  font-size: 0.85rem;
+  color: #8a6d00;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
+}
+
+.erro {
+  color: #b00020;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+a {
+  color: #2563eb;
+}
+
+.selo {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.selo-baixa {
+  background: #e3f6e8;
+  color: #1a7a38;
+}
+
+.selo-media {
+  background: #fff4e0;
+  color: #9a6400;
+}
+
+.selo-alta {
+  background: #fde3e3;
+  color: #b00020;
+}

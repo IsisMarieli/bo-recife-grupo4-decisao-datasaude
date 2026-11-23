@@ -1,0 +1,25 @@
+.pagina {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.subtitulo {
+  color: #444;
+  margin-top: 0;
+}
+
+.erro {
+  color: #b00020;
+}
+
+.seletor {
+  display: block;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.seletor select {
+  margin-left: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font: inherit;
+}

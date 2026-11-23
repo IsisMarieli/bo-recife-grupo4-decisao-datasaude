@@ -140,7 +140,7 @@ def obter_tendencia(municipio_id: int, indicador_id: int, db: Session = Depends(
 
 @app.get("/alertas", response_model=List[schemas.AlertaOut], tags=["alertas"])
 def listar_alertas(municipio_id: Optional[int] = None, db: Session = Depends(get_db)):
-    query = db.query(models.Alerta)
+    query = db.query(models.Alerta).options(joinedload(models.Alerta.indicador))
     if municipio_id:
         query = query.filter(models.Alerta.municipio_id == municipio_id)
     return query.order_by(desc(models.Alerta.data)).all()

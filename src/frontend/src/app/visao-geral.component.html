@@ -32,27 +32,80 @@
       </article>
     </div>
 
-    <h3>Alertas da semana</h3>
+    <div class="card-municipios">
+      <h3>Municípios para acompanhar</h3>
 
-    @if (alertas.length === 0) {
-      <p>Nenhum alerta ativo no momento.</p>
-    } @else {
-      <ul class="lista-alertas">
-        @for (alerta of alertas; track alerta.id) {
-          <li>
-            <span class="gravidade" [class]="'gravidade-' + alerta.gravidade">{{ alerta.gravidade }}</span>
-            <div class="conteudo">
-              <strong>{{ nomeMunicipio(alerta.municipio_id) }}</strong>
-              <p>{{ alerta.descricao }}</p>
-              <span class="data">{{ alerta.data }}</span>
+      @if (alertas.length === 0) {
+        <p>Nenhum alerta ativo no momento.</p>
+      } @else {
+        <ul class="lista-alertas">
+          @for (alerta of alertas; track alerta.id; let i = $index) {
+            <li>
+              <a class="cartao-alerta" [routerLink]="['/indicadores', alerta.municipio_id]">
+                <span class="numero" [style.background]="corPrioridade(alerta.gravidade)">{{ numero(i) }}</span>
+
+                <div class="info">
+                  <strong class="municipio">
+                    {{ municipioDoAlerta(alerta.municipio_id)?.nome ?? ('Município #' + alerta.municipio_id) }}
+                  </strong>
+                  <span class="subtitulo-alerta">
+                    {{ municipioDoAlerta(alerta.municipio_id)?.regiao_saude?.nome ?? '—' }}
+                    · {{ alerta.indicador?.nome_curto ?? alerta.indicador?.nome ?? 'Indicador' }}
+                  </span>
+                </div>
+
+                <div class="metrica">
+                  <span class="quantidade">{{ alerta.valor ?? '—' }}</span>
+                  <span class="prioridade" [style.color]="corPrioridade(alerta.gravidade)">
+                    {{ rotuloPrioridade(alerta.gravidade) }}
+                  </span>
+                </div>
+
+                <svg
+                  class="seta"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="9 6 15 12 9 18"></polyline>
+                </svg>
+              </a>
+            </li>
+          }
+        </ul>
+      }
+
+      @if (municipioFoco) {
+        <div class="foco">
+          <div class="foco-cabecalho">
+            <span class="bolinha" [style.background]="corPrioridade(municipioFoco.prioridade?.nivel ?? '')"></span>
+            <strong>Cidade em foco principal</strong>
+          </div>
+
+          <div class="foco-grade">
+            <div class="foco-chip">
+              <span class="foco-rotulo">Nome e código IBGE</span>
+              <span class="foco-valor-destaque">{{ municipioFoco.nome }} · {{ municipioFoco.codigo_ibge }}</span>
             </div>
-          </li>
-        }
-      </ul>
-    }
-
-    <p class="acao">
-      <a routerLink="/mapa-de-necessidades">Ver todos os municípios no Mapa de Necessidades →</a>
-    </p>
+            <div class="foco-chip">
+              <span class="foco-rotulo">Habitantes</span>
+              <span class="foco-valor-destaque">{{ formatarNumero(municipioFoco.populacao) }}</span>
+            </div>
+            <div class="foco-chip">
+              <span class="foco-rotulo">Unidades</span>
+              <span class="foco-valor-destaque">{{ formatarNumero(municipioFoco.quantidade_ubs) }}</span>
+            </div>
+            <div class="foco-chip">
+              <span class="foco-rotulo">Índices</span>
+              <span class="foco-valor-destaque">{{ municipioFoco.prioridade?.pontuacao ?? '—' }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
   }
 </section>

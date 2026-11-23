@@ -26,6 +26,7 @@ class MunicipioOut(BaseModel):
     codigo_ibge: str
     nome: str
     populacao: Optional[int] = None
+    quantidade_ubs: Optional[int] = None
     regiao_saude: Optional[RegiaoSaudeOut] = None
     prioridade: Optional[ClassificacaoPrioridadeOut] = None
 
@@ -50,10 +51,19 @@ class IndicadorOut(BaseModel):
 
     id: int
     nome: str
+    nome_curto: Optional[str] = None
     categoria: Optional[str] = None
     unidade: Optional[str] = None
     fonte: Optional[FonteDadosOut] = None
     valores: List[ValorIndicadorOut] = []
+
+
+class IndicadorResumoOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    nome: str
+    nome_curto: Optional[str] = None
+    unidade: Optional[str] = None
 
 
 class AlertaOut(BaseModel):
@@ -63,5 +73,7 @@ class AlertaOut(BaseModel):
     municipio_id: int
     tipo: str
     gravidade: str
+    valor: Optional[float] = None
     data: date
     descricao: str
+    indicador: Optional[IndicadorResumoOut] = None

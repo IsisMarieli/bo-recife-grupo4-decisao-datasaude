@@ -28,15 +28,15 @@ Esta pasta reúne os **dados utilizados pelo projeto** e, principalmente, a **do
 ### Base 1 — Catálogo de municípios (referência)
 
 - **Nome da base:** Nome, código IBGE e população aproximada de 7 municípios de Pernambuco, usados no escopo inicial do MVP.
-- **Origem:** Valores de referência aproximados, digitados manualmente a partir de conhecimento geral sobre os municípios — **ainda não vêm de uma consulta real à API do IBGE**.
-- **URL:** <https://cidades.ibge.gov.br/brasil/pe/recife/panorama> (API de Localidades do IBGE, a integrar em versão futura)
-- **Responsável (órgão/instituição):** IBGE (fonte de referência; integração ainda não implementada)
+- **Origem:** Valores de referência aproximados, digitados manualmente a partir de conhecimento geral sobre os municípios — **ainda não vêm de uma consulta real à API do IBGE**. A quantidade de Unidades Básicas de Saúde (`quantidade_ubs`) é **totalmente fictícia** (estimada por proporção à população), sem nenhuma integração com o CNES.
+- **URL:** <https://cidades.ibge.gov.br/brasil/pe/recife/panorama> (API de Localidades do IBGE, a integrar em versão futura); CNES (<https://cnes.datasus.gov.br/>) para a quantidade real de UBS, ainda não integrado.
+- **Responsável (órgão/instituição):** IBGE (município/população); CNES/Ministério da Saúde (UBS) — nenhuma das duas integrações está implementada ainda.
 - **Data de acesso:** não se aplica (dados ainda não coletados via API)
 - **Descrição:** usada para popular as tabelas `municipios` e `regioes_saude` via `src/backend/app/seed.py`.
 - **Instrução de download:** não se aplica nesta etapa — ver `MUNICIPIOS` em `src/backend/app/seed.py`.
-- **Licença, se conhecida:** dados públicos do IBGE.
+- **Licença, se conhecida:** dados públicos do IBGE/CNES.
 - **Arquivo(s) nesta pasta (se versionado):** nenhum; os valores estão no código do seed, não em arquivo de dados.
-- **⚠️ Pendência:** validar/substituir esses valores pela consulta real à API do IBGE antes da entrega final da AV2.
+- **⚠️ Pendência:** validar/substituir população e código IBGE pela consulta real à API do IBGE, e `quantidade_ubs` por uma integração real com o CNES, antes da entrega final da AV2.
 
 ### Base 2 — Indicadores de saúde (dados demonstrativos)
 

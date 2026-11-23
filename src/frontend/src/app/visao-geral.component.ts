@@ -18,6 +18,7 @@ import { MunicipioService } from './municipio.service';
 export class VisaoGeralComponent implements OnInit {
   municipios: Municipio[] = [];
   alertas: Alerta[] = [];
+  municipioFoco: Municipio | null = null;
   carregando = true;
   erro = false;
 
@@ -30,10 +31,12 @@ export class VisaoGeralComponent implements OnInit {
     forkJoin({
       municipios: this.municipioService.listar(),
       alertas: this.alertaService.listar(),
+      municipioFoco: this.municipioService.regiaoPadrao(),
     }).subscribe({
-      next: ({ municipios, alertas }) => {
+      next: ({ municipios, alertas, municipioFoco }) => {
         this.municipios = municipios;
         this.alertas = alertas;
+        this.municipioFoco = municipioFoco;
         this.carregando = false;
       },
       error: () => {
@@ -55,7 +58,35 @@ export class VisaoGeralComponent implements OnInit {
     return this.municipios.filter((m) => m.prioridade?.nivel === 'media').length;
   }
 
-  nomeMunicipio(municipioId: number): string {
-    return this.municipios.find((m) => m.id === municipioId)?.nome ?? `Município #${municipioId}`;
+  private readonly CORES_PRIORIDADE: Record<string, string> = {
+    alta: '#B00020',
+    media: '#9A6400',
+    baixa: '#1A7A38',
+  };
+
+  private readonly ROTULOS_PRIORIDADE: Record<string, string> = {
+    alta: 'Alta',
+    media: 'Média',
+    baixa: 'Baixa',
+  };
+
+  municipioDoAlerta(municipioId: number): Municipio | undefined {
+    return this.municipios.find((m) => m.id === municipioId);
+  }
+
+  numero(indice: number): string {
+    return String(indice + 1).padStart(2, '0');
+  }
+
+  corPrioridade(gravidade: string): string {
+    return this.CORES_PRIORIDADE[gravidade] ?? '#555';
+  }
+
+  rotuloPrioridade(gravidade: string): string {
+    return this.ROTULOS_PRIORIDADE[gravidade] ?? gravidade;
+  }
+
+  formatarNumero(n: number | null | undefined): string {
+    return n == null ? '—' : new Intl.NumberFormat('pt-BR').format(n);
   }
 }

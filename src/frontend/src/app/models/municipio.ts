@@ -14,6 +14,7 @@ export interface Municipio {
   codigo_ibge: string;
   nome: string;
   populacao: number | null;
+  quantidade_ubs: number | null;
   regiao_saude: RegiaoSaude | null;
   prioridade: ClassificacaoPrioridade | null;
 }

@@ -26,6 +26,7 @@ class Municipio(Base):
     codigo_ibge = Column(String, nullable=False, unique=True)
     nome = Column(String, nullable=False)
     populacao = Column(Integer)
+    quantidade_ubs = Column(Integer)
     regiao_saude_id = Column(ForeignKey("regioes_saude.id"))
 
     regiao_saude = relationship("RegiaoSaude", back_populates="municipios")
@@ -49,6 +50,7 @@ class Indicador(Base):
 
     id = Column(Integer, primary_key=True)
     nome = Column(String, nullable=False)
+    nome_curto = Column(String)
     categoria = Column(String)
     unidade = Column(String)
     fonte_id = Column(ForeignKey("fontes_dados.id"))
@@ -79,6 +81,7 @@ class Alerta(Base):
     indicador_id = Column(ForeignKey("indicadores.id"))
     tipo = Column(String, nullable=False)
     gravidade = Column(String, nullable=False)
+    valor = Column(Float)
     data = Column(Date, nullable=False)
     descricao = Column(String, nullable=False)
 

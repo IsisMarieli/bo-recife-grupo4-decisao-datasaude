@@ -16,4 +16,8 @@ export class MunicipioService {
   obter(id: number): Observable<Municipio> {
     return this.http.get<Municipio>(`${API_BASE_URL}/municipios/${id}`);
   }
+
+  regiaoPadrao(): Observable<Municipio> {
+    return this.http.get<Municipio>(`${API_BASE_URL}/regiao-padrao-demo`);
+  }
 }

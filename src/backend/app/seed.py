@@ -2,11 +2,13 @@
 
 Município, código IBGE e população são valores de referência aproximados,
 a validar/atualizar quando a integração real com a API do IBGE for
-implementada. Os VALORES dos indicadores (séries por período) são
-demonstrativos, gerados por este script, e servem para exercitar o fluxo
-ponta a ponta antes da integração real com o DATASUS (pipeline com PySUS,
-ainda não implementado nesta etapa inicial) — ver RF18/CA11 em
-docs/04-requisitos.md e a documentação em data/README.md.
+implementada. A quantidade de UBS é demonstrativa/fictícia (não vem do
+CNES) — não há integração real com o cadastro de estabelecimentos nesta
+etapa. Os VALORES dos indicadores (séries por período) são demonstrativos,
+gerados por este script, e servem para exercitar o fluxo ponta a ponta
+antes da integração real com o DATASUS (pipeline com PySUS, ainda não
+implementado nesta etapa inicial) — ver RF18/CA11 em docs/04-requisitos.md
+e a documentação em data/README.md.
 
 Uso: python -m app.seed
 """
@@ -21,15 +23,16 @@ from .priority import calcular_classificacoes
 
 RNG = random.Random(42)
 
-# nome, codigo_ibge, populacao (referência aproximada, a validar com o IBGE)
+# nome, codigo_ibge, populacao (referência aproximada, a validar com o IBGE),
+# quantidade_ubs (demonstrativa/fictícia, sem integração real com o CNES)
 MUNICIPIOS = [
-    ("Recife", "2611606", 1488920),
-    ("Olinda", "2609600", 354451),
-    ("Jaboatão dos Guararapes", "2607901", 644620),
-    ("Paulista", "2610707", 325069),
-    ("Caruaru", "2604106", 365278),
-    ("Petrolina", "2611101", 354176),
-    ("Garanhuns", "2606002", 140577),
+    ("Recife", "2611606", 1488920, 136),
+    ("Olinda", "2609600", 354451, 42),
+    ("Jaboatão dos Guararapes", "2607901", 644620, 58),
+    ("Paulista", "2610707", 325069, 37),
+    ("Caruaru", "2604106", 365278, 46),
+    ("Petrolina", "2611101", 354176, 51),
+    ("Garanhuns", "2606002", 140577, 22),
 ]
 
 REGIAO_METROPOLITANA = "Região Metropolitana do Recife"
@@ -46,11 +49,11 @@ REGIAO_POR_MUNICIPIO = {
     "Petrolina": REGIAO_SERTAO,
 }
 
-# nome, categoria, fonte, unidade, minimo, maximo (faixa usada para gerar os valores demo)
+# nome, nome_curto, categoria, fonte, unidade, minimo, maximo (faixa usada para gerar os valores demo)
 INDICADORES = [
-    ("Taxa de incidência de arboviroses", "epidemiologico", "SINAN", "casos por 100 mil hab.", 50, 400),
-    ("Taxa de ocupação de leitos", "assistencial", "SIH/SUS", "%", 40, 95),
-    ("Cobertura de Atenção Básica", "populacional", "e-SUS APS", "%", 45, 90),
+    ("Taxa de incidência de arboviroses", "Arboviroses", "epidemiologico", "SINAN", "casos por 100 mil hab.", 50, 400),
+    ("Taxa de ocupação de leitos", "Ocupação de leitos", "assistencial", "SIH/SUS", "%", 40, 95),
+    ("Cobertura de Atenção Básica", "Atenção Básica", "populacional", "e-SUS APS", "%", 45, 90),
 ]
 
 PERIODOS = ["2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"]
@@ -79,11 +82,12 @@ def seed(db: Session) -> None:
     db.flush()
 
     municipios = {}
-    for nome, codigo_ibge, populacao in MUNICIPIOS:
+    for nome, codigo_ibge, populacao, quantidade_ubs in MUNICIPIOS:
         municipio = models.Municipio(
             nome=nome,
             codigo_ibge=codigo_ibge,
             populacao=populacao,
+            quantidade_ubs=quantidade_ubs,
             regiao_saude=regioes[REGIAO_POR_MUNICIPIO[nome]],
         )
         db.add(municipio)
@@ -91,7 +95,7 @@ def seed(db: Session) -> None:
     db.flush()
 
     fontes = {}
-    for _, _, fonte_nome, _, _, _ in INDICADORES:
+    for _, _, _, fonte_nome, _, _, _ in INDICADORES:
         if fonte_nome not in fontes:
             fonte = models.FonteDados(nome=fonte_nome, data_ultima_atualizacao=date(2026, 10, 31))
             db.add(fonte)
@@ -99,9 +103,13 @@ def seed(db: Session) -> None:
     db.flush()
 
     indicadores = {}
-    for nome, categoria, fonte_nome, unidade, minimo, maximo in INDICADORES:
+    for nome, nome_curto, categoria, fonte_nome, unidade, minimo, maximo in INDICADORES:
         indicador = models.Indicador(
-            nome=nome, categoria=categoria, fonte=fontes[fonte_nome], unidade=unidade
+            nome=nome,
+            nome_curto=nome_curto,
+            categoria=categoria,
+            fonte=fontes[fonte_nome],
+            unidade=unidade,
         )
         db.add(indicador)
         indicadores[nome] = (indicador, minimo, maximo)
@@ -145,6 +153,7 @@ def seed(db: Session) -> None:
                 indicador=indicador,
                 tipo="limiar_excedido",
                 gravidade="alta" if valor >= limite * 1.1 else "media",
+                valor=valor,
                 data=date(2026, 10, 31),
                 descricao=(
                     f"{nome} em {municipio.nome} atingiu {valor} ({indicador.unidade}), "

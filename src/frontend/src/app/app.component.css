@@ -11,9 +11,19 @@
 .sidebar {
   width: 240px;
   flex-shrink: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  background: #12332f;
+  color: #effdf8;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.sidebar-conteudo {
+  height: 100%;
   padding: 1.5rem 1rem;
-  border-right: 1px solid #e0e0e0;
-  background: #fafafa;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -21,7 +31,9 @@
 
 .sidebar h1 {
   font-size: 1.25rem;
+  font-weight: 700;
   margin: 0;
+  color: #effdf8;
 }
 
 nav {
@@ -31,7 +43,7 @@ nav {
 }
 
 nav a {
-  color: #333;
+  color: rgba(239, 253, 248, 0.75);
   text-decoration: none;
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
@@ -39,14 +51,14 @@ nav a {
 }
 
 nav a:hover {
-  background: #eef4ff;
-  color: #2563eb;
+  background: rgba(239, 253, 248, 0.1);
+  color: #effdf8;
 }
 
 nav a.ativo {
-  background: #eef4ff;
-  color: #2563eb;
-  border-left-color: #2563eb;
+  background: rgba(239, 253, 248, 0.14);
+  color: #effdf8;
+  border-left-color: #effdf8;
   font-weight: 600;
 }
 
@@ -64,6 +76,7 @@ nav a.ativo {
   flex: 1;
   min-width: 0;
   padding: 1.5rem 2rem;
+  background: #f5f6f2;
 }
 
 @media (max-width: 720px) {
@@ -73,8 +86,9 @@ nav a.ativo {
 
   .sidebar {
     width: auto;
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
+    height: auto;
+    position: static;
+    border-bottom: 1px solid rgba(239, 253, 248, 0.15);
   }
 
   nav {

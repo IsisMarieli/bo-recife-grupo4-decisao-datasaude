@@ -3,54 +3,90 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.topbar {
-  padding: 1.5rem 1rem 1rem;
-  border-bottom: 1px solid #e0e0e0;
-  background: #fafafa;
+.app {
+  display: flex;
+  min-height: 100vh;
 }
 
-.topbar h1 {
-  max-width: 960px;
-  margin: 0 auto 0.75rem;
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid #e0e0e0;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar h1 {
+  font-size: 1.25rem;
+  margin: 0;
 }
 
 nav {
-  max-width: 960px;
-  margin: 0 auto 0.75rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 nav a {
   color: #333;
   text-decoration: none;
-  padding: 0.35rem 0;
-  border-bottom: 2px solid transparent;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid transparent;
 }
 
 nav a:hover {
+  background: #eef4ff;
   color: #2563eb;
 }
 
 nav a.ativo {
+  background: #eef4ff;
   color: #2563eb;
-  border-bottom-color: #2563eb;
+  border-left-color: #2563eb;
   font-weight: 600;
 }
 
 .aviso {
-  max-width: 960px;
-  margin: 0 auto;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #8a6d00;
   background: #fff8e1;
   border: 1px solid #ffe082;
   border-radius: 6px;
   padding: 0.5rem 0.75rem;
-  display: inline-block;
+  margin-top: auto;
 }
 
 .conteudo {
-  padding: 1.5rem 1rem;
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 2rem;
+}
+
+@media (max-width: 720px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .aviso {
+    margin-top: 0.5rem;
+  }
+
+  .conteudo {
+    padding: 1rem;
+  }
 }

@@ -1,0 +1,65 @@
+.indicadores {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.erro {
+  color: #b00020;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cartao {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.cartao header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cartao h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.categoria {
+  font-size: 0.75rem;
+  color: #555;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.grafico-wrapper {
+  position: relative;
+  height: 180px;
+}
+
+.cartao footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.aviso-demo {
+  color: #8a6d00;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 999px;
+  padding: 0.05rem 0.5rem;
+}

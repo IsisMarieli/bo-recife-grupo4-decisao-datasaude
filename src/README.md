@@ -61,20 +61,25 @@ src/
 │       └── seed.py        # popula o banco com dados de referência/demonstrativos
 └── frontend/       # Aplicação Angular (standalone components)
     └── src/app/
-        ├── app.component.*       # tela inicial: tabela de municípios e prioridade
-        ├── municipio.service.ts  # chamadas HTTP à API
-        └── models/municipio.ts   # tipos TypeScript equivalentes aos schemas da API
+        ├── app.component.*            # tela inicial: tabela de municípios e prioridade
+        ├── indicadores.component.*    # painel de indicadores do município selecionado (gráficos Chart.js)
+        ├── municipio.service.ts       # chamadas HTTP à API (municípios)
+        ├── indicador.service.ts       # chamadas HTTP à API (indicadores)
+        └── models/                    # tipos TypeScript equivalentes aos schemas da API
 ```
 
 **Status atual (escopo inicial da AV2):** a API expõe os endpoints de
-`/municipios`, `/alertas`, `/comparar` e `/regiao-padrao-demo` descritos em
-`docs/05`, com dados de 7 municípios de Pernambuco inseridos pelo script de
-seed — ver [data/README.md](../data/README.md) para a origem e o caráter
-demonstrativo desses dados. O frontend ainda cobre apenas um fluxo mínimo
-(lista de municípios), funcionando ponta a ponta com a API. O mapa
-interativo (Leaflet), os blocos de indicadores com gráficos, o painel de
-priorização em fluxo de trabalho e a ingestão real das bases do DATASUS
-(PySUS) ainda não foram implementados.
+`/municipios`, `/municipios/{id}/indicadores`, `/alertas`, `/comparar` e
+`/regiao-padrao-demo` descritos em `docs/05`, com dados de 7 municípios de
+Pernambuco inseridos pelo script de seed — ver
+[data/README.md](../data/README.md) para a origem e o caráter demonstrativo
+desses dados. O frontend cobre dois fluxos funcionando ponta a ponta com a
+API: a lista de municípios com a classificação de prioridade, e — ao
+clicar em "Ver indicadores" num município — o painel de Indicadores de
+Saúde, com um gráfico de tendência (Chart.js) por indicador, fonte, data
+de atualização e aviso de dado demonstrativo. O mapa interativo (Leaflet),
+o painel de priorização em fluxo de trabalho e a ingestão real das bases
+do DATASUS (PySUS) ainda não foram implementados.
 
 Instruções de instalação e execução estão no
 [README principal](../README.md#como-executar-o-projeto).

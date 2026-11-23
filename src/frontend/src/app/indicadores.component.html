@@ -1,0 +1,51 @@
+<section class="indicadores" aria-live="polite">
+  <h2>Indicadores de Saúde — {{ municipioNome }}</h2>
+
+  @if (carregando) {
+    <p>Carregando indicadores...</p>
+  }
+
+  @if (erro) {
+    <p class="erro">
+      Não foi possível carregar os indicadores deste município. Tente novamente mais tarde.
+    </p>
+  }
+
+  @if (!carregando && !erro && indicadores.length === 0) {
+    <p>Nenhum indicador disponível para este município no momento.</p>
+  }
+
+  @if (!carregando && !erro && indicadores.length > 0) {
+    <div class="grade">
+      @for (indicador of indicadores; track indicador.id) {
+        <article class="cartao">
+          <header>
+            <h3>{{ indicador.nome }}</h3>
+            @if (indicador.categoria) {
+              <span class="categoria">{{ indicador.categoria }}</span>
+            }
+          </header>
+
+          <div class="grafico-wrapper">
+            <canvas #grafico></canvas>
+          </div>
+
+          <footer>
+            @if (indicador.unidade) {
+              <span>Unidade: {{ indicador.unidade }}</span>
+            }
+            @if (indicador.fonte) {
+              <span>Fonte: {{ indicador.fonte.nome }}</span>
+              @if (indicador.fonte.data_ultima_atualizacao) {
+                <span>Atualizado em: {{ indicador.fonte.data_ultima_atualizacao }}</span>
+              }
+            }
+            @if (indicador.valores.length > 0 && indicador.valores[0].demonstrativo) {
+              <span class="aviso-demo">dado demonstrativo</span>
+            }
+          </footer>
+        </article>
+      }
+    </div>
+  }
+</section>

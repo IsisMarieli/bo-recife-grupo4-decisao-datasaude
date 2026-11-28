@@ -1,6 +1,24 @@
 <section class="pagina">
-  <h2>Visão Geral</h2>
-  <p class="subtitulo">Indicadores macro e alertas da semana para a vigilância territorial.</p>
+  <div class="faixa-filtros">
+    <span class="competencia">{{ competencia }}</span>
+    <div class="filtros">
+      <select class="filtro" (change)="aoMudarTerritorio($any($event.target).value)">
+        <option value="" [selected]="territorioSelecionado === null">Pernambuco (todos)</option>
+        @for (m of municipios; track m.id) {
+          <option [value]="m.id" [selected]="territorioSelecionado === m.id">{{ m.nome }}</option>
+        }
+      </select>
+
+      <select class="filtro" (change)="aoMudarPeriodo($any($event.target).value)">
+        <option value="3" [selected]="periodoSelecionado === 3">Últimos 3 meses</option>
+        <option value="6" [selected]="periodoSelecionado === 6">Últimos 6 meses</option>
+      </select>
+
+      @if (filtrosAtivos) {
+        <button type="button" class="botao-limpar-filtros" (click)="limparFiltros()">Limpar filtros</button>
+      }
+    </div>
+  </div>
 
   @if (carregando) {
     <p>Carregando painel...</p>
@@ -13,99 +31,215 @@
   }
 
   @if (!carregando && !erro) {
-    <div class="cartoes">
-      <article class="cartao-macro">
+    <div class="cartoes-indicadores">
+      <article class="cartao-indicador">
+        <div class="cartao-indicador-topo">
+          <span class="rotulo">Municípios monitorados</span>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3Z" />
+            <path d="M9 7v13M15 4v13" />
+          </svg>
+        </div>
         <span class="valor">{{ totalMunicipios }}</span>
-        <span class="rotulo">Municípios monitorados</span>
+        <span class="descricao">Com indicadores disponíveis</span>
       </article>
-      <article class="cartao-macro alta">
-        <span class="valor">{{ totalPrioridadeAlta }}</span>
-        <span class="rotulo">Com prioridade alta</span>
+
+      <article class="cartao-indicador">
+        <div class="cartao-indicador-topo">
+          <span class="rotulo">Alertas ativos</span>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+            <path d="M10 21a2 2 0 0 0 4 0" />
+          </svg>
+        </div>
+        <span class="valor destaque-vermelho">{{ alertas.length }}</span>
+        <span class="descricao">Acima do limiar de referência</span>
       </article>
-      <article class="cartao-macro media">
-        <span class="valor">{{ totalPrioridadeMedia }}</span>
-        <span class="rotulo">Com prioridade média</span>
+
+      <article class="cartao-indicador">
+        <div class="cartao-indicador-topo">
+          <span class="rotulo">Com prioridade alta</span>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 3v18" />
+            <path d="M5 4h11l-2.5 4L16 12H5" />
+          </svg>
+        </div>
+        <span class="valor destaque-vermelho">{{ totalPrioridadeAlta }}</span>
+        <span class="descricao">Requerem atenção prioritária</span>
       </article>
-      <article class="cartao-macro">
-        <span class="valor">{{ alertas.length }}</span>
-        <span class="rotulo">Alertas ativos</span>
+
+      <article class="cartao-indicador">
+        <div class="cartao-indicador-topo">
+          <span class="rotulo">População residente</span>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1" />
+            <circle cx="10" cy="7" r="3.5" />
+            <path d="M22 20v-1a3.5 3.5 0 0 0-2.5-3.35" />
+            <path d="M16.5 3.65a3.5 3.5 0 0 1 0 6.7" />
+          </svg>
+        </div>
+        <span class="valor">{{ formatarNumero(populacaoTotal) }}</span>
+        <span class="descricao">Nos municípios monitorados</span>
       </article>
     </div>
 
-    <div class="card-municipios">
-      <h3>Municípios para acompanhar</h3>
-
-      @if (alertas.length === 0) {
-        <p>Nenhum alerta ativo no momento.</p>
-      } @else {
-        <ul class="lista-alertas">
-          @for (alerta of alertas; track alerta.id; let i = $index) {
-            <li>
-              <a class="cartao-alerta" [routerLink]="['/indicadores', alerta.municipio_id]">
-                <span class="numero" [style.background]="corPrioridade(alerta.gravidade)">{{ numero(i) }}</span>
-
-                <div class="info">
-                  <strong class="municipio">
-                    {{ municipioDoAlerta(alerta.municipio_id)?.nome ?? ('Município #' + alerta.municipio_id) }}
-                  </strong>
-                  <span class="subtitulo-alerta">
-                    {{ municipioDoAlerta(alerta.municipio_id)?.regiao_saude?.nome ?? '—' }}
-                    · {{ alerta.indicador?.nome_curto ?? alerta.indicador?.nome ?? 'Indicador' }}
-                  </span>
-                </div>
-
-                <div class="metrica">
-                  <span class="quantidade">{{ alerta.valor ?? '—' }}</span>
-                  <span class="prioridade" [style.color]="corPrioridade(alerta.gravidade)">
-                    {{ rotuloPrioridade(alerta.gravidade) }}
-                  </span>
-                </div>
-
-                <svg
-                  class="seta"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="9 6 15 12 9 18"></polyline>
-                </svg>
-              </a>
-            </li>
+    <div class="area-central">
+      <div class="cartao-mapa">
+        <h3>Mapa de necessidades</h3>
+        <div class="cartao-mapa-area">
+          <app-mapa-municipios />
+          @if (municipioFoco) {
+            <div class="chip-regiao-atual">
+              <span>Região atual</span>
+              <strong>{{ municipioFoco.nome }}</strong>
+            </div>
           }
-        </ul>
-      }
-
-      @if (municipioFoco) {
-        <div class="foco">
-          <div class="foco-cabecalho">
-            <span class="bolinha" [style.background]="corPrioridade(municipioFoco.prioridade?.nivel ?? '')"></span>
-            <strong>Cidade em foco principal</strong>
-          </div>
-
-          <div class="foco-grade">
-            <div class="foco-chip">
-              <span class="foco-rotulo">Nome e código IBGE</span>
-              <span class="foco-valor-destaque">{{ municipioFoco.nome }} · {{ municipioFoco.codigo_ibge }}</span>
-            </div>
-            <div class="foco-chip">
-              <span class="foco-rotulo">Habitantes</span>
-              <span class="foco-valor-destaque">{{ formatarNumero(municipioFoco.populacao) }}</span>
-            </div>
-            <div class="foco-chip">
-              <span class="foco-rotulo">Unidades</span>
-              <span class="foco-valor-destaque">{{ formatarNumero(municipioFoco.quantidade_ubs) }}</span>
-            </div>
-            <div class="foco-chip">
-              <span class="foco-rotulo">Índices</span>
-              <span class="foco-valor-destaque">{{ municipioFoco.prioridade?.pontuacao ?? '—' }}</span>
-            </div>
-          </div>
         </div>
-      }
+        <div class="mapa-rodape">
+          <div class="legenda">
+            <span><i class="ponto" style="background:#df5261"></i>Alta</span>
+            <span><i class="ponto" style="background:#9a6400"></i>Média</span>
+            <span><i class="ponto" style="background:#1a7a38"></i>Baixa</span>
+            <span><i class="ponto" style="background:#c7d7d1"></i>Sem dados</span>
+          </div>
+          <a routerLink="/mapa-de-necessidades" class="link-mapa-completo">Ver mapa completo →</a>
+        </div>
+      </div>
+
+      <div class="cartao-lista">
+        <h3>Municípios para acompanhar</h3>
+
+        @if (alertas.length === 0) {
+          <p>
+            @if (territorioSelecionado) {
+              Nenhum alerta ativo para o município selecionado.
+            } @else {
+              Nenhum alerta ativo no momento.
+            }
+          </p>
+        } @else {
+          <ul class="lista-alertas">
+            @for (alerta of alertas; track alerta.id; let i = $index) {
+              <li>
+                <a class="linha-alerta" [routerLink]="['/indicadores', alerta.municipio_id]">
+                  <span class="numero" [style.background]="corPrioridade(alerta.gravidade)">{{ numero(i) }}</span>
+
+                  <div class="info">
+                    <strong class="municipio">
+                      {{ municipioDoAlerta(alerta.municipio_id)?.nome ?? ('Município #' + alerta.municipio_id) }}
+                    </strong>
+                    <span class="subtitulo-alerta">
+                      {{ municipioDoAlerta(alerta.municipio_id)?.regiao_saude?.nome ?? '—' }}
+                      · {{ alerta.indicador?.nome_curto ?? alerta.indicador?.nome ?? 'Indicador' }}
+                    </span>
+                  </div>
+
+                  <div class="metrica">
+                    <span class="quantidade">{{ alerta.valor ?? '—' }}</span>
+                    <span class="prioridade" [style.color]="corPrioridade(alerta.gravidade)">
+                      {{ rotuloPrioridade(alerta.gravidade) }}
+                    </span>
+                  </div>
+
+                  <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 6 15 12 9 18"></polyline>
+                  </svg>
+                </a>
+              </li>
+            }
+          </ul>
+        }
+
+        @if (municipioFoco) {
+          <div class="foco">
+            <div class="foco-cabecalho">
+              <span class="bolinha" [style.background]="corPrioridade(municipioFoco.prioridade?.nivel ?? '')"></span>
+              <strong>{{ municipioFoco.nome }} em foco</strong>
+            </div>
+
+            <div class="foco-grade">
+              <div class="foco-chip">
+                <span class="foco-rotulo">Habitantes</span>
+                <span class="foco-valor-destaque">{{ formatarNumero(municipioFoco.populacao) }}</span>
+              </div>
+              <div class="foco-chip">
+                <span class="foco-rotulo">Unidades</span>
+                <span class="foco-valor-destaque">{{ formatarNumero(municipioFoco.quantidade_ubs) }}</span>
+              </div>
+              <div class="foco-chip">
+                <span class="foco-rotulo">Índice</span>
+                <span class="foco-valor-destaque">{{ municipioFoco.prioridade?.pontuacao ?? '—' }}</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="area-inferior">
+      <div class="cartao-variacao">
+        <div class="cartao-variacao-cabecalho">
+          <h3>Variação no último período</h3>
+          <button type="button" class="botao-baixar" (click)="baixarVariacoes()">Baixar dados</button>
+        </div>
+
+        @if (variacoes.length === 0) {
+          <p>Sem dados de variação disponíveis.</p>
+        } @else {
+          <ul class="barras-variacao">
+            @for (v of variacoes; track v.indicador_id) {
+              <li>
+                <span class="rotulo-barra">{{ v.nome_curto ?? v.nome }}</span>
+                <div class="trilho">
+                  <div
+                    class="preenchido"
+                    [style.width.%]="larguraBarra(v.variacao_percentual)"
+                    [style.background]="v.variacao_percentual >= 0 ? '#df5261' : '#087d69'"
+                  ></div>
+                </div>
+                <span class="percentual" [style.color]="v.variacao_percentual >= 0 ? '#df5261' : '#087d69'">
+                  {{ v.variacao_percentual > 0 ? '+' : '' }}{{ v.variacao_percentual }}%
+                </span>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+
+      <div class="cartao-decidir">
+        <div class="cartao-decidir-cabecalho">
+          <h3>Para decidir nesta semana</h3>
+          @if (alertaDestaque) {
+            <span class="badge-atencao">Atenção</span>
+          }
+        </div>
+
+        @if (alertaDestaque) {
+          <div class="superficie-alerta">
+            <strong class="titulo-alerta">
+              {{ municipioDoAlerta(alertaDestaque.municipio_id)?.nome }}
+              · {{ alertaDestaque.indicador?.nome_curto ?? alertaDestaque.indicador?.nome }}
+            </strong>
+            <p class="descricao-alerta">{{ alertaDestaque.descricao }}</p>
+            <span class="fonte-alerta">
+              @if (alertaDestaque.indicador?.fonte) {
+                Fonte: {{ alertaDestaque.indicador?.fonte?.nome }}
+              }
+            </span>
+          </div>
+          <a class="botao-decidir" [routerLink]="['/indicadores', alertaDestaque.municipio_id]">
+            Ver indicadores de {{ municipioDoAlerta(alertaDestaque.municipio_id)?.nome }}
+          </a>
+        } @else {
+          <p>
+            @if (territorioSelecionado) {
+              Nenhuma decisão pendente para o município selecionado.
+            } @else {
+              Nenhuma decisão pendente no momento.
+            }
+          </p>
+        }
+      </div>
     </div>
   }
 </section>

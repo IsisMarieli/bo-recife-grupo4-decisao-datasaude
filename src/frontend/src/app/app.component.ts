@@ -4,6 +4,7 @@ import { forkJoin } from 'rxjs';
 
 import { AlertaService } from './alerta.service';
 import { FonteService } from './fonte.service';
+import { StatusService } from './status.service';
 
 @Component({
   selector: 'app-root',
@@ -15,18 +16,21 @@ import { FonteService } from './fonte.service';
 export class AppComponent implements OnInit {
   ultimaAtualizacao: string | null = null;
   alertasAtivos = 0;
+  versao: string | null = null;
 
   constructor(
     private readonly fonteService: FonteService,
     private readonly alertaService: AlertaService,
+    private readonly statusService: StatusService,
   ) {}
 
   ngOnInit(): void {
     forkJoin({
       fontes: this.fonteService.listar(),
       alertas: this.alertaService.listar(),
+      status: this.statusService.obter(),
     }).subscribe({
-      next: ({ fontes, alertas }) => {
+      next: ({ fontes, alertas, status }) => {
         const data = fontes.find((f) => f.data_ultima_atualizacao)?.data_ultima_atualizacao;
         this.ultimaAtualizacao = data
           ? new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(
@@ -34,6 +38,7 @@ export class AppComponent implements OnInit {
             )
           : null;
         this.alertasAtivos = alertas.length;
+        this.versao = status.versao;
       },
       error: () => {
         this.ultimaAtualizacao = null;

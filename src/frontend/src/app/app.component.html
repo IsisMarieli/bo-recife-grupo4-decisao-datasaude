@@ -46,20 +46,38 @@
       </nav>
 
       <div class="metodologia">
-        <strong>Como o índice é calculado</strong>
-        <p>
+        <div class="metodologia-cabecalho">
+          <span class="metodologia-icone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <line x1="12" y1="10.5" x2="12" y2="16" />
+              <circle cx="12" cy="7.5" r="0.75" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          @if (versao) {
+            <span class="metodologia-versao">Versão {{ versao }}</span>
+          }
+        </div>
+        <strong class="metodologia-titulo">Como o índice é calculado</strong>
+        <p class="metodologia-descricao">
           A pontuação de prioridade é a média ponderada dos indicadores
           normalizados entre os municípios do período (60% incidência de
           arboviroses, 40% ocupação de leitos).
         </p>
+        <span class="metodologia-link" title="Ainda não há uma página de metodologia detalhada nesta versão.">
+          Consultar metodologia
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </span>
       </div>
 
       <p class="aviso-dados">Os indicadores exibidos nesta versão são demonstrativos.</p>
 
       <div class="usuario">
-        <span class="avatar">MC</span>
+        <span class="avatar">IM</span>
         <div class="usuario-texto">
-          <strong>Maria Clara</strong>
+          <strong>Isis Moura</strong>
           <span>Gestora municipal</span>
         </div>
         <svg class="usuario-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

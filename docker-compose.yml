@@ -16,7 +16,9 @@ services:
       retries: 10
 
   backend:
-    build: ./src/backend
+    build:
+      context: .
+      dockerfile: src/backend/Dockerfile
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/saude_estrategica
     ports:

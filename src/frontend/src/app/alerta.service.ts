@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -9,7 +9,11 @@ import { Alerta } from './models/alerta';
 export class AlertaService {
   constructor(private readonly http: HttpClient) {}
 
-  listar(): Observable<Alerta[]> {
-    return this.http.get<Alerta[]>(`${API_BASE_URL}/alertas`);
+  listar(municipioId?: number | null): Observable<Alerta[]> {
+    let params = new HttpParams();
+    if (municipioId != null) {
+      params = params.set('municipio_id', municipioId);
+    }
+    return this.http.get<Alerta[]>(`${API_BASE_URL}/alertas`, { params });
   }
 }

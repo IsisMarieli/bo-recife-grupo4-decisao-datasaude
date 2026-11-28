@@ -64,6 +64,19 @@ class IndicadorResumoOut(BaseModel):
     nome: str
     nome_curto: Optional[str] = None
     unidade: Optional[str] = None
+    fonte: Optional[FonteDadosOut] = None
+
+
+class VariacaoIndicadorOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    indicador_id: int
+    nome: str
+    nome_curto: Optional[str] = None
+    unidade: Optional[str] = None
+    periodo_atual: str
+    valor_medio_atual: float
+    variacao_percentual: float
 
 
 class AlertaOut(BaseModel):

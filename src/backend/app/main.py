@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List, Optional
 
 from fastapi import Depends, FastAPI, HTTPException, Query
@@ -10,6 +11,26 @@ from .database import Base, engine, get_db
 
 Base.metadata.create_all(bind=engine)
 
+
+def _ler_versao() -> str:
+    """Lê o arquivo VERSION da raiz do repositório.
+
+    Funciona tanto rodando localmente (VERSION fica alguns níveis acima de
+    src/backend/app/) quanto no container Docker (VERSION é copiado para
+    /app/VERSION, um nível acima de app/) — por isso sobe a árvore de
+    diretórios procurando o arquivo, em vez de fixar um caminho relativo.
+    """
+    atual = Path(__file__).resolve().parent
+    for _ in range(5):
+        candidato = atual / "VERSION"
+        if candidato.exists():
+            return candidato.read_text().strip()
+        atual = atual.parent
+    return "0.0.0"
+
+
+VERSAO = _ler_versao()
+
 app = FastAPI(
     title="Saúde Estratégica API",
     description=(
@@ -17,7 +38,7 @@ app = FastAPI(
         "Nesta etapa, os valores dos indicadores exibidos são demonstrativos "
         "(ver RF18 em docs/04-requisitos.md)."
     ),
-    version="0.1.0",
+    version=VERSAO,
 )
 
 app.add_middleware(
@@ -47,6 +68,7 @@ def _carregar_municipios(db: Session):
 def raiz():
     return {
         "projeto": "Saúde Estratégica",
+        "versao": VERSAO,
         "status": "MVP em construção (AV2)",
         "aviso": "Os valores de indicadores exibidos nesta versão são demonstrativos.",
     }
@@ -143,9 +165,60 @@ def listar_fontes(db: Session = Depends(get_db)):
     return db.query(models.FonteDados).order_by(desc(models.FonteDados.data_ultima_atualizacao)).all()
 
 
+@app.get(
+    "/indicadores/variacao",
+    response_model=List[schemas.VariacaoIndicadorOut],
+    tags=["indicadores"],
+)
+def variacao_indicadores(
+    municipio_id: Optional[int] = Query(None, description="Restringe a variação a um único município"),
+    meses: int = Query(
+        6, ge=1, le=6, description="Janela de meses usada como referência para a comparação"
+    ),
+    db: Session = Depends(get_db),
+):
+    """Variação percentual da média (ou do valor do município, se filtrado),
+    comparando o último período disponível com o período 'meses' atrás."""
+    indicadores = db.query(models.Indicador).options(joinedload(models.Indicador.valores)).all()
+
+    resultado = []
+    for indicador in indicadores:
+        valores = indicador.valores
+        if municipio_id:
+            valores = [v for v in valores if v.municipio_id == municipio_id]
+
+        por_periodo: dict[str, list[float]] = {}
+        for valor in valores:
+            por_periodo.setdefault(valor.periodo, []).append(valor.valor)
+
+        periodos = sorted(por_periodo)
+        if len(periodos) < 2:
+            continue
+
+        janela = min(meses, len(periodos) - 1)
+        medias = {p: sum(vs) / len(vs) for p, vs in por_periodo.items()}
+        atual, anterior = medias[periodos[-1]], medias[periodos[-1 - janela]]
+        variacao = ((atual - anterior) / anterior * 100) if anterior else 0.0
+
+        resultado.append(
+            schemas.VariacaoIndicadorOut(
+                indicador_id=indicador.id,
+                nome=indicador.nome,
+                nome_curto=indicador.nome_curto,
+                unidade=indicador.unidade,
+                periodo_atual=periodos[-1],
+                valor_medio_atual=round(atual, 2),
+                variacao_percentual=round(variacao, 1),
+            )
+        )
+    return resultado
+
+
 @app.get("/alertas", response_model=List[schemas.AlertaOut], tags=["alertas"])
 def listar_alertas(municipio_id: Optional[int] = None, db: Session = Depends(get_db)):
-    query = db.query(models.Alerta).options(joinedload(models.Alerta.indicador))
+    query = db.query(models.Alerta).options(
+        joinedload(models.Alerta.indicador).joinedload(models.Indicador.fonte)
+    )
     if municipio_id:
         query = query.filter(models.Alerta.municipio_id == municipio_id)
     return query.order_by(desc(models.Alerta.data)).all()

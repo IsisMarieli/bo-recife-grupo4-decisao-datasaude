@@ -138,6 +138,11 @@ def obter_tendencia(municipio_id: int, indicador_id: int, db: Session = Depends(
     return out
 
 
+@app.get("/fontes", response_model=List[schemas.FonteDadosOut], tags=["status"])
+def listar_fontes(db: Session = Depends(get_db)):
+    return db.query(models.FonteDados).order_by(desc(models.FonteDados.data_ultima_atualizacao)).all()
+
+
 @app.get("/alertas", response_model=List[schemas.AlertaOut], tags=["alertas"])
 def listar_alertas(municipio_id: Optional[int] = None, db: Session = Depends(get_db)):
     query = db.query(models.Alerta).options(joinedload(models.Alerta.indicador))

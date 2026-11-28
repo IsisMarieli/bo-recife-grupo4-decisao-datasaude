@@ -1,4 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --cor-fundo: #f5f6f2;
+  --cor-cabecalho-bg: #fafbf8;
+  --cor-superficie: #ffffff;
+  --cor-sidebar: #12332f;
+  --cor-acao-principal: #087d69;
+  --cor-titulo: #020618;
+  --cor-texto-destaque: #1c2925;
+  --cor-texto-interface: #334155;
+  --cor-texto-secundario: #62748e;
+  --cor-texto-auxiliar: #7c8a86;
+  --cor-texto-inativo-sidebar: #a9bbb6;
+  --cor-destaque-sidebar: #96f7e4;
+  --cor-fundo-icone: #e6f7f2;
+  --cor-mapa-area: #f3f6f4;
+  --cor-mapa-neutro: #c7d7d1;
+  --cor-destaque-laranja: #ed8c55;
+  --cor-destaque-vermelho: #df5261;
+  --cor-coluna-priorizacao: #ebece7;
+
+  --fonte-titulos: "Manrope", sans-serif;
+  --fonte-interface: "DM Sans", sans-serif;
+
+  --sombra-cartao: 0 5px 22px rgba(28, 45, 39, 0.055);
+  --raio-cartao: 12px;
+  --raio-botao: 8px;
+  --raio-campo: 8px;
+}
 
 * {
   box-sizing: border-box;
@@ -9,4 +36,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background: var(--cor-fundo);
+  font-family: var(--fonte-interface);
+  color: var(--cor-texto-interface);
 }

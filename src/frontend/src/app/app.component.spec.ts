@@ -20,11 +20,14 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the page title', () => {
+  it('should render the brand name and header title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Saúde Estratégica');
+    expect(compiled.querySelector('.marca-texto strong')?.textContent).toContain('Saúde Estratégica');
+    expect(compiled.querySelector('.cabecalho h1')?.textContent).toContain(
+      'Painel estadual de apoio à gestão',
+    );
   });
 
   it('should render the four navigation links', () => {
@@ -32,11 +35,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const links = Array.from(compiled.querySelectorAll('nav a')).map((a) => a.textContent?.trim());
-    expect(links).toEqual([
-      'Visão Geral',
-      'Mapa de Necessidades',
-      'Indicadores de Saúde',
-      'Priorização',
-    ]);
+    expect(links).toEqual(['Visão Geral', 'Mapa de Necessidades', 'Indicadores', 'Priorização']);
   });
 });

@@ -1,22 +1,98 @@
 <div class="app">
   <aside class="sidebar">
     <div class="sidebar-conteudo">
-      <h1>Saúde Estratégica</h1>
+      <div class="marca">
+        <span class="marca-icone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#12332f" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12h4l2-7 4 14 2-7h6" />
+          </svg>
+        </span>
+        <div class="marca-texto">
+          <strong>Saúde Estratégica</strong>
+          <span class="marca-subtitulo">Apoio à decisão no SUS</span>
+        </div>
+      </div>
+
       <nav>
-        <a routerLink="/visao-geral" routerLinkActive="ativo">Visão Geral</a>
-        <a routerLink="/mapa-de-necessidades" routerLinkActive="ativo">Mapa de Necessidades</a>
-        <a routerLink="/indicadores" routerLinkActive="ativo">Indicadores de Saúde</a>
-        <a routerLink="/priorizacao" routerLinkActive="ativo">Priorização</a>
+        <a routerLink="/visao-geral" routerLinkActive="ativo">
+          <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+          Visão Geral
+        </a>
+        <a routerLink="/mapa-de-necessidades" routerLinkActive="ativo">
+          <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3Z" />
+            <path d="M9 7v13M15 4v13" />
+          </svg>
+          Mapa de Necessidades
+        </a>
+        <a routerLink="/indicadores" routerLinkActive="ativo">
+          <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 20V10M12 20V4M20 20v-7" />
+          </svg>
+          Indicadores
+        </a>
+        <a routerLink="/priorizacao" routerLinkActive="ativo">
+          <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="3" width="16" height="18" rx="2" />
+            <path d="M8 3v3h8V3M8 11h8M8 15h5" />
+          </svg>
+          Priorização
+        </a>
       </nav>
-      <p class="aviso">
-        Os valores de indicadores e a classificação de prioridade exibidos nesta
-        versão são demonstrativos, gerados para testar o fluxo ponta a ponta
-        antes da integração real com o DATASUS.
-      </p>
+
+      <div class="metodologia">
+        <strong>Como o índice é calculado</strong>
+        <p>
+          A pontuação de prioridade é a média ponderada dos indicadores
+          normalizados entre os municípios do período (60% incidência de
+          arboviroses, 40% ocupação de leitos).
+        </p>
+      </div>
+
+      <p class="aviso-dados">Os indicadores exibidos nesta versão são demonstrativos.</p>
+
+      <div class="usuario">
+        <span class="avatar">MC</span>
+        <div class="usuario-texto">
+          <strong>Maria Clara</strong>
+          <span>Gestora municipal</span>
+        </div>
+        <svg class="usuario-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </div>
     </div>
   </aside>
 
-  <main class="conteudo">
-    <router-outlet />
-  </main>
+  <div class="principal">
+    <header class="cabecalho">
+      <h1>Painel estadual de apoio à gestão</h1>
+      <div class="cabecalho-acoes">
+        @if (ultimaAtualizacao) {
+          <span class="atualizacao">
+            <span class="ponto"></span>
+            Dados atualizados em {{ ultimaAtualizacao }}
+          </span>
+        }
+        <button type="button" class="notificacoes" aria-label="Notificações">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+            <path d="M10 21a2 2 0 0 0 4 0" />
+          </svg>
+          @if (alertasAtivos > 0) {
+            <span class="notificacoes-ponto"></span>
+          }
+        </button>
+      </div>
+    </header>
+
+    <main class="conteudo">
+      <router-outlet />
+    </main>
+  </div>
 </div>

@@ -7,6 +7,7 @@ import { AlertaService } from './alerta.service';
 import { Alerta } from './models/alerta';
 import { Municipio } from './models/municipio';
 import { MunicipioService } from './municipio.service';
+import { corPrioridade, rotuloPrioridade } from './prioridade';
 
 @Component({
   selector: 'app-visao-geral',
@@ -58,17 +59,8 @@ export class VisaoGeralComponent implements OnInit {
     return this.municipios.filter((m) => m.prioridade?.nivel === 'media').length;
   }
 
-  private readonly CORES_PRIORIDADE: Record<string, string> = {
-    alta: '#B00020',
-    media: '#9A6400',
-    baixa: '#1A7A38',
-  };
-
-  private readonly ROTULOS_PRIORIDADE: Record<string, string> = {
-    alta: 'Alta',
-    media: 'Média',
-    baixa: 'Baixa',
-  };
+  readonly corPrioridade = corPrioridade;
+  readonly rotuloPrioridade = rotuloPrioridade;
 
   municipioDoAlerta(municipioId: number): Municipio | undefined {
     return this.municipios.find((m) => m.id === municipioId);
@@ -76,14 +68,6 @@ export class VisaoGeralComponent implements OnInit {
 
   numero(indice: number): string {
     return String(indice + 1).padStart(2, '0');
-  }
-
-  corPrioridade(gravidade: string): string {
-    return this.CORES_PRIORIDADE[gravidade] ?? '#555';
-  }
-
-  rotuloPrioridade(gravidade: string): string {
-    return this.ROTULOS_PRIORIDADE[gravidade] ?? gravidade;
   }
 
   formatarNumero(n: number | null | undefined): string {

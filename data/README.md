@@ -38,7 +38,19 @@ Esta pasta reúne os **dados utilizados pelo projeto** e, principalmente, a **do
 - **Arquivo(s) nesta pasta (se versionado):** nenhum; os valores estão no código do seed, não em arquivo de dados.
 - **⚠️ Pendência:** validar/substituir população e código IBGE pela consulta real à API do IBGE, e `quantidade_ubs` por uma integração real com o CNES, antes da entrega final da AV2.
 
-### Base 2 — Indicadores de saúde (dados demonstrativos)
+### Base 2 — Malha geográfica dos municípios de PE (real)
+
+- **Nome da base:** Geometrias (polígonos) dos 185 municípios de Pernambuco, em formato GeoJSON.
+- **Origem:** API de Malhas Territoriais do IBGE — dado **real**, não demonstrativo.
+- **URL:** `https://servicodados.ibge.gov.br/api/v3/malhas/estados/PE?formato=application/vnd.geo+json&intrarregiao=municipio&qualidade=minima`
+- **Responsável (órgão/instituição):** IBGE.
+- **Data de acesso:** 2026-11-28.
+- **Descrição:** usada pelo Mapa de Necessidades (Leaflet) para desenhar os municípios; cada feature tem `properties.codarea` (código IBGE de 7 dígitos), usado para cruzar com `municipios.codigo_ibge` da nossa API. Qualidade "mínima" (menos detalhe nas bordas) foi escolhida de propósito para manter o arquivo leve (~85 KB) — adequada para um mapa temático, não para análises de precisão geográfica.
+- **Instrução de download:** baixar a URL acima e salvar como `src/frontend/public/pe-municipios.geojson`.
+- **Licença, se conhecida:** dados públicos do IBGE.
+- **Arquivo(s) nesta pasta (se versionado):** nenhum; o arquivo fica em `src/frontend/public/pe-municipios.geojson` (servido como asset estático do frontend), não em `data/`.
+
+### Base 3 — Indicadores de saúde (dados demonstrativos)
 
 - **Nome da base:** Séries mensais fictícias para três indicadores: "Taxa de incidência de arboviroses" (SINAN), "Taxa de ocupação de leitos" (SIH/SUS) e "Cobertura de Atenção Básica" (e-SUS APS).
 - **Origem:** **Dados gerados artificialmente** por `src/backend/app/seed.py` (gerador aleatório com semente fixa `random.Random(42)`, dentro de faixas plausíveis por indicador), e não extraídos do DATASUS.

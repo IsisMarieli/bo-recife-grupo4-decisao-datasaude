@@ -64,14 +64,17 @@ src/
         ├── app.component.*                  # casca: cabeçalho, menu das 4 telas e <router-outlet>
         ├── app.routes.ts                    # rotas: visao-geral, mapa-de-necessidades, indicadores(/:id), priorizacao
         ├── visao-geral.component.*          # tela 1 — cartões de macroindicadores + alertas da semana
-        ├── mapa-de-necessidades.component.* # tela 2 — lista de municípios e prioridade (mapa Leaflet: pendente)
+        ├── mapa-de-necessidades.component.* # tela 2 — mapa interativo (Leaflet) + lista de municípios
         ├── indicadores-page.component.*     # tela 3 — seletor de município + painel de indicadores
         ├── indicadores.component.*          # painel de indicadores (gráficos Chart.js), usado pela tela 3
         ├── priorizacao.component.*          # tela 4 — placeholder (ainda não implementada)
+        ├── prioridade.ts                    # cores/rótulos de prioridade (compartilhado entre telas)
         ├── municipio.service.ts             # chamadas HTTP à API (municípios)
         ├── indicador.service.ts             # chamadas HTTP à API (indicadores)
         ├── alerta.service.ts                # chamadas HTTP à API (alertas)
         └── models/                          # tipos TypeScript equivalentes aos schemas da API
+
+public/pe-municipios.geojson  # malha dos 185 municípios de PE (IBGE), servida como asset estático
 ```
 
 **Status atual (escopo inicial da AV2):** a API expõe os endpoints de
@@ -87,9 +90,13 @@ navegação entre elas pelo menu superior:
 1. **Visão Geral** (tela inicial) — cartões de macroindicadores (municípios
    monitorados, prioridade alta/média, alertas ativos) e a lista de
    alertas da semana (`GET /alertas`).
-2. **Mapa de Necessidades** — lista de municípios com a classificação de
-   prioridade; o mapa cartográfico interativo (Leaflet) ainda não foi
-   implementado, a tela já avisa isso ao usuário.
+2. **Mapa de Necessidades** — mapa cartográfico interativo (Leaflet) dos
+   185 municípios de Pernambuco, usando a malha GeoJSON do IBGE
+   (`public/pe-municipios.geojson`, qualidade "mínima" para manter o
+   arquivo leve). Os 7 municípios com dados aparecem coloridos pelo nível
+   de prioridade e são clicáveis (levam para os indicadores do
+   município); os demais aparecem em cinza ("sem dados"), conforme RF17.
+   A lista em tabela é mantida abaixo do mapa como alternativa acessível.
 3. **Indicadores de Saúde** — seletor de município (ou acesso direto vindo
    do Mapa de Necessidades) e o painel com gráfico de tendência (Chart.js)
    por indicador, fonte, data de atualização e aviso de dado demonstrativo.

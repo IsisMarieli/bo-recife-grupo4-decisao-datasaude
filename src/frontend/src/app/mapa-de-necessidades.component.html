@@ -4,19 +4,30 @@
     Município de referência: Recife, com os demais municípios de Pernambuco para comparação.
   </p>
   <p class="aviso">
-    O mapa cartográfico interativo (Leaflet) ainda está em desenvolvimento. Por
-    enquanto, esta tela lista os municípios com a classificação de
-    prioridade — os dados de indicadores exibidos são demonstrativos.
+    Os dados de indicadores e a classificação de prioridade exibidos são demonstrativos.
+    Municípios sem dados aparecem em cinza no mapa.
   </p>
-
-  @if (carregando) {
-    <p>Carregando municípios...</p>
-  }
 
   @if (erro) {
     <p class="erro">
       Não foi possível carregar os municípios. Verifique se a API está em execução.
     </p>
+  }
+
+  @if (!erro) {
+    <div class="mapa-card">
+      <div #mapa class="mapa"></div>
+      <div class="legenda">
+        <span><i class="ponto" style="background:#B00020"></i>Alta</span>
+        <span><i class="ponto" style="background:#9A6400"></i>Média</span>
+        <span><i class="ponto" style="background:#1A7A38"></i>Baixa</span>
+        <span><i class="ponto" style="background:#CBD5E1"></i>Sem dados</span>
+      </div>
+    </div>
+  }
+
+  @if (carregando) {
+    <p>Carregando municípios...</p>
   }
 
   @if (!carregando && !erro) {
